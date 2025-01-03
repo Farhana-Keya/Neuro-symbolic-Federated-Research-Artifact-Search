@@ -1,0 +1,130 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Fedarated search for retrieving connected dataset and Software Application",
+        "version": "0.1.0"
+    },
+    "servers": [
+        {
+            "url": "",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/question": {
+            "post": {
+                "summary": "Search Question",
+                "description": "Dynamically query based on user input:\n- `server`: Selects which API(s) to query ('*', 'resodate', 'wikidata').\n- `resource_type`: Selects the resource type ('*', 'Dataset', 'SoftwareApplication').",
+                "operationId": "search_question_question_post",
+                "parameters": [
+                    {
+                        "name": "Question",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "title": "Question"
+                        }
+                    },
+                    {
+                        "name": "server",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "enum": [
+                                "*",
+                                "resodate",
+                                "wikidata"
+                            ],
+                            "type": "string",
+                            "title": "Server"
+                        }
+                    },
+                    {
+                        "name": "resource_type",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "enum": [
+                                "*",
+                                "Dataset",
+                                "SoftwareApplication"
+                            ],
+                            "type": "string",
+                            "title": "Resource Type"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}

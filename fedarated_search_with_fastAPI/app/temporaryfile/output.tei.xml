@@ -1,0 +1,2244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">TeKET: a Tree-Based Unsupervised Keyphrase Extraction Technique</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Springer Science and Business Media LLC</publisher>
+				<availability status="unknown"><p>Copyright Springer Science and Business Media LLC</p>
+				</availability>
+				<date type="published" when="2020-03-05">5 March 2020</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName coords="1,51.02,141.91,60.54,8.97"><forename type="first">Gollam</forename><surname>Rabby</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Faculty of Computing</orgName>
+								<orgName type="institution">University Malaysia Pahang</orgName>
+								<address>
+									<postCode>26300</postCode>
+									<settlement>Gambang, Kuantan</settlement>
+									<country key="MY">Malaysia</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Information and Knowledge Engineering</orgName>
+								<orgName type="institution">University of Economics</orgName>
+								<address>
+									<addrLine>W. Churchill Sq. 4</addrLine>
+									<postCode>130 67</postCode>
+									<settlement>Prague 3</settlement>
+									<country key="CZ">Czech Republic</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName coords="1,129.39,141.91,48.10,8.97"><forename type="first">Saiful</forename><surname>Azad</surname></persName>
+							<email>saifulazad@ump.edu.my</email>
+							<affiliation key="aff0">
+								<orgName type="department">Faculty of Computing</orgName>
+								<orgName type="institution">University Malaysia Pahang</orgName>
+								<address>
+									<postCode>26300</postCode>
+									<settlement>Gambang, Kuantan</settlement>
+									<country key="MY">Malaysia</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="institution" key="instit1">IBM CoE</orgName>
+								<orgName type="institution" key="instit2">UMP</orgName>
+								<address>
+									<settlement>Gambang, Kuantan</settlement>
+									<country key="MY">Malaysia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mufti</forename><surname>Mahmud</surname></persName>
+							<idno type="ORCID">0000-0002-2037-8348</idno>
+						</author>
+						<author>
+							<persName><forename type="first">Kamal</forename><forename type="middle">Z</forename><surname>Zamli</surname></persName>
+						</author>
+						<author>
+							<persName coords="1,362.98,141.91,138.55,8.97"><forename type="first">Mohammed</forename><forename type="middle">Mostafizur</forename><surname>Rahman</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">American International University -Bangladesh</orgName>
+								<address>
+									<settlement>Dhaka</settlement>
+									<country key="BD">Bangladesh</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">TeKET: a Tree-Based Unsupervised Keyphrase Extraction Technique</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Cognitive Computation</title>
+						<title level="j" type="abbrev">Cogn Comput</title>
+						<idno type="ISSN">1866-9956</idno>
+						<idno type="eISSN">1866-9964</idno>
+						<imprint>
+							<publisher>Springer Science and Business Media LLC</publisher>
+							<biblScope unit="volume">12</biblScope>
+							<biblScope unit="issue">4</biblScope>
+							<biblScope unit="page" from="811" to="833"/>
+							<date type="published" when="2020-03-05">5 March 2020</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">C27B528A47BB9950A3BB1D951B8F0699</idno>
+					<idno type="DOI">10.1007/s12559-019-09706-3</idno>
+					<note type="submission">Received: 5 June 2019 / Accepted: 28 November 2019</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.1" ident="GROBID" when="2022-10-31T22:28+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Automatic keyphrase extraction techniques aim to extract quality keyphrases for higher level summarization of a document. Majority of the existing techniques are mainly domain-specific, which require application domain knowledge and employ higher order statistical methods, and computationally expensive and require large train data, which is rare for many applications. Overcoming these issues, this paper proposes a new unsupervised keyphrase extraction technique. The proposed unsupervised keyphrase extraction technique, named TeKET or Tree-based Keyphrase Extraction Technique, is a domain-independent technique that employs limited statistical knowledge and requires no train data. This technique also introduces a new variant of a binary tree, called KeyPhrase Extraction (KePhEx) tree, to extract final keyphrases from candidate keyphrases. In addition, a measure, called Cohesiveness Index or CI, is derived which denotes a given node's degree of cohesiveness with respect to the root. The CI is used in flexibly extracting final keyphrases from the KePhEx tree and is co-utilized in the ranking process. The effectiveness of the proposed technique and its domain and language independence are experimentally evaluated using available benchmark corpora, namely SemEval-2010 (a scientific articles dataset), Theses100 (a thesis dataset), and a German Research Article dataset, respectively. The acquired results are compared with other relevant unsupervised techniques belonging to both statistical and graph-based techniques. The obtained results demonstrate the improved performance of the proposed technique over other compared techniques in terms of precision, recall, and F1 scores.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<facsimile>
+		<surface n="1" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="2" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="3" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="4" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="5" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="6" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="7" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="8" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="9" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="10" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="11" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="12" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="13" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="14" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="15" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="16" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="17" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="18" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="19" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="20" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="21" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="22" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+		<surface n="23" ulx="0.0" uly="0.0" lrx="595.224" lry="790.955"/>
+	</facsimile>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>Automatic keyphrase extraction techniques endeavor to extract quality keyphrases automatically from documents. of digital libraries. Furthermore, document classification and similar concepts are widely used in machine learning (ML), data mining, database discovery, and so on. Some notable applications using these techniques are newsgroup filtering, target marketing, document organization, health status tracking, and so on <ref type="bibr" coords="2,132.15,344.07,10.83,8.79" target="#b0">[1,</ref><ref type="bibr" coords="2,146.11,344.07,12.51,8.79" target="#b13">14,</ref><ref type="bibr" coords="2,161.74,344.07,12.51,8.79" target="#b19">20,</ref><ref type="bibr" coords="2,177.37,344.07,12.51,8.79" target="#b34">35,</ref><ref type="bibr" coords="2,193.01,344.07,12.51,8.79" target="#b36">37,</ref><ref type="bibr" coords="2,208.64,344.07,11.88,8.79" target="#b41">42]</ref>. In addition, for any contextual advertising to display advertisements based on user identity and browsing history, keyphrase extraction is a core technique.</p><p>To support these aforementioned applications, several keyphrase extraction techniques have been proposed <ref type="bibr" coords="2,270.81,406.34,18.33,8.79;2,51.02,418.80,171.24,8.79">[15-17, 22, 26, 29, 39, 40, 58, 63, 67, 79]</ref>. Among them, domain-specific approaches <ref type="bibr" coords="2,173.13,431.25,16.68,8.79" target="#b20">[21]</ref> require knowledge of the application domain, and linguistic approaches <ref type="bibr" coords="2,272.47,443.70,16.67,8.79" target="#b64">[65]</ref> require expertise of the language, thus are inapplicable in problems from other domains and/or languages. Among the ML-based techniques <ref type="bibr" coords="2,142.23,481.06,15.85,8.79" target="#b24">[25,</ref><ref type="bibr" coords="2,161.75,481.06,11.88,8.79" target="#b35">36]</ref>, supervised ML techniques demand a considerable amount of rare train data to extract quality keyphrases. Again, statistical unsupervised techniques <ref type="bibr" coords="2,97.73,518.42,10.83,8.79" target="#b2">[3,</ref><ref type="bibr" coords="2,112.51,518.42,12.51,8.79" target="#b10">11,</ref><ref type="bibr" coords="2,128.95,518.42,13.34,8.79" target="#b16">17]</ref> are computationally expensive due to their large amount of complex operations, and graphbased unsupervised techniques <ref type="bibr" coords="2,180.94,543.33,10.83,8.79" target="#b5">[6,</ref><ref type="bibr" coords="2,195.62,543.33,7.50,8.79" target="#b6">7,</ref><ref type="bibr" coords="2,206.99,543.33,12.51,8.79" target="#b18">19,</ref><ref type="bibr" coords="2,223.36,543.33,12.51,8.79" target="#b59">60,</ref><ref type="bibr" coords="2,239.72,543.33,13.34,8.79" target="#b69">70]</ref> perform poorly due to their incapability in identifying cohesiveness among various words that form a keyphrase <ref type="bibr" coords="2,236.12,568.24,15.32,8.79" target="#b24">[25]</ref>. In light of the aforementioned discussion, the automatic keyphrase extraction remains an important research area to explore.</p><p>Hence, this paper proposes a new automatic keyphrase extraction technique with the following notable contributions:</p><p>-A domain-and language-independent unsupervised keyphrase extraction technique, named tree-based keyphrase extraction technique (TeKET) that employs limited statistical knowledge and requires no train data. -A variant of the binary tree, called Keyphrase Extraction (KePhEx) tree, which extracts final keyphrases from candidate keyphrases.</p><p>-A new keyphrase ranking approach employing Cohesiveness Index (CI or μ) value and Term Frequency (TF) as calculating factors. -Determine effective values for various parameters, which have a direct influence on the performance of the proposed technique in different application domains.</p><p>The other sections of this paper are organized as follows. The "Related Works" section lists various prominent keyphrase extraction techniques with their advantages and limitations, and thus, demonstrates the necessity of proposing a new technique. Afterwards, the "Preliminaries" section describes the preliminaries, which includes problem formulation and conceptual framework of the proposed technique. The proposed technique is elaborated in detail in the "Methods" section. The "Experimental Setup" section elaborates on the setup of the experiments, which includes corpus details, evaluation metrics, and implementation details. All the acquired results are plotted and analyzed in the "Results and Discussion" section and are concluded in the "Conclusions" section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Related Works</head><p>Since our proposed technique is an unsupervised keyphrase extraction technique, therefore, this section only discusses similar approaches. Again, as seen in Fig. <ref type="figure" coords="2,497.65,390.17,3.75,8.79" target="#fig_1">2</ref>, most of the unsupervised keyphrase extraction techniques could be broadly classified into two groups, namely graph-based and statistical techniques. Prominent approaches of both these groups are scrutinized below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Graph-Based Techniques</head><p>Here, the core idea is to build a graph from an input document and to rank its nodes according to their importance <ref type="bibr" coords="2,380.11,515.25,10.62,8.79" target="#b7">[8]</ref>. For instance, KeyGraph <ref type="bibr" coords="2,505.84,515.25,16.67,8.79" target="#b44">[45]</ref> is a similar technique which is content sensitive and domainindependent and utilizes co-occurrence of various terms for indexing vertices of the graph. However, it fails to detect the relationships among the low-frequency items inside clusters and also ignores direct relationships between the clusters <ref type="bibr" coords="2,339.19,591.47,15.33,8.79" target="#b70">[71]</ref>. On the other hand, PageRank <ref type="bibr" coords="2,480.66,591.47,16.67,8.79" target="#b45">[46]</ref> is based on the concept of random walks and is related to eigenvector centrality that tends to favor nodes with many important connections regardless of cohesiveness considerations. This technique is well suited for raking pages on the web and social networks, but not suitable for keyphrase extraction due to lack of consideration of cohesiveness <ref type="bibr" coords="2,484.88,668.68,15.83,8.79" target="#b43">[44,</ref><ref type="bibr" coords="2,503.20,668.68,11.88,8.79" target="#b71">72]</ref>.</p><p>An extension of PageRank is PositionRank <ref type="bibr" coords="2,497.30,681.63,15.33,8.79" target="#b18">[19]</ref>, which incorporates all the positions of a word along with its frequency to score the word, and thus, decides the rank of that particular word. This way, it outperforms all the techniques that consider only the first position information in the ranking. However, due to ignoring topical coverage and diversity which is not naturally handled by this kind of graphs <ref type="bibr" coords="3,95.41,382.67,15.33,8.79" target="#b24">[25]</ref>, this technique suffers from considerably limited performance.</p><p>TextRank <ref type="bibr" coords="3,105.56,407.57,16.66,8.79" target="#b43">[44]</ref> is one of the most well-known graphbased approaches for keyphrase extraction. Here, the scientific documents are modeled as undirected or directed and weighted co-occurrence networks using a co-occurrence window of variable sizes <ref type="bibr" coords="3,157.47,457.38,15.34,8.79" target="#b43">[44]</ref>. It experiences several limitations, such as its incapability to capture cohesiveness. Again, retaining only the main core is suboptimal since sometimes it is impractical to discover all the gold standard keyphrases within a unique subgraph, whereas many valuable keyphases may place in the lower levels of the hierarchy <ref type="bibr" coords="3,75.99,532.10,15.34,8.79" target="#b63">[64]</ref>. Moreover, selecting or discarding a large group of words at a time reduces the flexibility of the extraction process and negatively impacts the performance. An extension of TextRank is SingleRank <ref type="bibr" coords="3,191.11,569.46,15.32,8.79" target="#b69">[70]</ref>, which weights an edge equal to the number of times the two corresponding words co-occur. Unlike its predecessor, it does not extract keyphrases by assembling ranked words, instead, only noun phrases are extracted from a document. However, sometimes it assigns higher scores to long but non-significant keyphrases which entices the ranking procedure.</p><p>Another enhancement of TextRank is TopicRank <ref type="bibr" coords="3,274.99,656.63,10.61,8.79" target="#b6">[7]</ref>. Here, the vertices of a graph are topics, not words. It extracts the noun phrases that represent the main topics of a document and clustered them into topics. A notable advantage of this technique is that it considers topical coverage and diversity. However, it equally weighs all candidates belonging to a single topic, which is impractical. In addition, it suffers from the error propagation problem which may occur during topics formation. To resolve the error propagation problem of TopicRank, the MultipartiteRank technique <ref type="bibr" coords="3,418.38,395.11,11.66,8.79" target="#b5">[6]</ref> utilizes a multipartite graph. Here, a complete directed multipartite graph is built that is connected only if they belong to different topics. Since this technique makes good use of relation reinforcement between topics and candidates, it performs better than other graph-based techniques. However, due to clustering error (where candidate keyphrases could be wrongly assigned to a similar topic), it struggles in selecting the most representative candidates.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Statistical Techniques</head><p>Although graph-based techniques show acceptable performance on many occasions, they are considerably difficult to implement in comparison with statistical unsupervised keyphrase extraction techniques. Three such prominent techniques are scrutinized below. The most prominent and state-of-the-art statistical technique is Term Frequency -Inverse Document Frequency (TF-IDF) <ref type="bibr" coords="3,466.33,619.32,15.32,8.79" target="#b55">[56]</ref>, which reflects the importance of a keyphrase to a document in a corpus. Among the two terms, TF provides aboutness and IDF provides informativeness. In other words, the IDF discriminates between informative and non-informative keyphrases across the documents, whereas the TF discriminates between popular and non-popular keyphrases in a document. This technique is computationally expensive as IDF is calculated across different documents <ref type="bibr" coords="4,239.50,60.11,15.33,8.79" target="#b47">[48]</ref>. Again, many studies report that this technique is biased towards single terms over compound terms <ref type="bibr" coords="4,191.55,85.03,15.33,8.79" target="#b17">[18]</ref>.</p><p>To resolve the problem of favoring single terms, KP-Miner <ref type="bibr" coords="4,78.13,109.93,16.67,8.79" target="#b17">[18]</ref> is proposed. It utilizes some heuristics based on TF and positions to identify potential keyphrases which are weighted with TF-IDF score <ref type="bibr" coords="4,169.53,134.83,15.34,8.79" target="#b29">[30]</ref>. Although it outperforms TF-IDF, it experiences several limitations such as a drop in global ranking performance with increasing length or number of documents <ref type="bibr" coords="4,139.20,172.19,15.33,8.79" target="#b42">[43]</ref>. In addition, it is computationally expensive due to its dependence on TF-IDF.</p><p>Another lightweight technique is YAKE <ref type="bibr" coords="4,240.07,197.10,15.34,8.79" target="#b9">[10]</ref>, which resolves the IDF problem. It takes five features into consideration, namely casing, word position, word frequency, word relatedness to context, and word in the different sentences to calculate the weight of a keyphrase. Again, due to generating candidate keyphrases employing N-grams technique, its computational complexity increases linearly with respect to N-grams <ref type="bibr" coords="4,132.89,284.28,15.34,8.79" target="#b74">[75]</ref>. Again, due to the same reason, a large number of keyprhases are generated, which entices the ranking procedure.</p><p>From the above discussions, it is evident that graph-based techniques and statistical techniques have several adverse characteristics, which restrict them from achieving better performance. To overcome the identified shortcomings, this paper proposes a tree-based technique to extract quality keyphrases from documents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Preliminaries</head><p>This section formulates the problems of keyphrase extractions followed by explaining the conceptual framework that are taken into account while developing the proposed technique.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Problem Formulation</head><p>Consider a document, δ, which has been passed to a keyphrase extraction technique to extract the final keyphrases, ϕ. For this, at first candidate keyphrases, χ are extracted from δ, which will be processed later to extract ϕ. Any candidate keyphrase χ i in χ (i.e., χ i ∈ χ) is composed of n number of ordered sequence of words, {w 1 , w 2 , ..., w m , ..., w n−1 , w n }, where n is a positive integer number, i.e., n ∈ Z+. Since any keyphrase is a coherently connected sequence of words that appear contiguously, χ i could be represented as an ordered set and its segments also could be represented as ordered subsets. Again, when n = 1, χ i contains only one word, otherwise multiple words. Note that χ i cannot be empty, and therefore,</p><formula xml:id="formula_0" coords="4,208.67,682.00,54.86,10.59">|χ i | = n = 0.</formula><p>For extracting a final keyphrase, ϕ j (where ϕ j ∈ ϕ) from a χ i , the latter is necessary to be processed. For this, the following probable cases need to be considered: Case 1 : χ i is ϕ j , i.e., χ i = ϕ j or χ i ⊆ ϕ j and ϕ j ⊆ χ i . Case 2 : ϕ j is a part of χ i , i.e., ϕ j ⊂ χ i . Case 3 : Again, χ i is a part of ϕ j , i.e., χ i ⊂ ϕ j . Case 4 : χ i is not a final keyphrase.</p><p>Although four probable cases are identified, it is difficult to determine an exact case for a certain candidate keyphrase. To identify that, in the subsequent section, we discuss some hypotheses and observations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conceptual Framework</head><p>The concept of extracting final keyphrases from candidate keyphrases relies on the following hypotheses and observations: Hypothesis 1 : For any χ i , case 1 and case 4 can be determined by its popularity. In other words, this decision can be taken based on the frequency of χ i in a document and applying a binary decision strategy. Hypothesis 2 : For case 2, since a part of χ i -denoted as χ i -is a final keyphrase (i.e., χ i = ϕ j ), the popularity and the cohesiveness of χ i must be higher than that of χ i . In this case, χ i need to be appropriately reduced to χ i . Hypothesis 3 : For case 3, since χ i is a part of ϕ j , χ i need to be expanded to χ i such that χ i = ϕ j . Again in this case, the popularity and the cohesiveness of χ i must be higher than that of χ i .</p><p>Hypothesis 1 is quite straightforward. A simple binary decision strategy could be applied to determine this. For instance, assuming that the frequency of χ i is α in δ. Now, it is compared with λ, which is a constant value, and also known as least seen allowable frequency (lsaf ) factor <ref type="bibr" coords="4,336.19,558.02,15.33,8.79" target="#b16">[17]</ref>. It separates non-popular keyphrases from popular keyphrases, which are unlikely to become final keyphrases. For instance, when α &lt; λ, it is most likely not a final keyphrase; otherwise, it is likely to be a final keyphrase. Note that the value of λ varies from one language to another and also is subjected to the length of a document <ref type="bibr" coords="4,349.00,632.75,15.33,8.79" target="#b16">[17]</ref>. Hence, an experiment has been conducted to find a suitable lsaf value (see the "Parameter Value Selection" section). Again, for hypothesis 2 and hypothesis 3, the proposed rooted binary tree expands or shrinks based on the candidate keyphrases and keeps track of the cohesiveness of various words in a keyphrase with respect to the root. In the end, the final keyphrases are extracted from the tree as detailed in the subsequent section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Methods</head><p>The entire process of keyphrase extraction using our proposed technique can be parted into three main phases: (i) candidate keyphrase selection or pre-processing, (ii) candidate keyphrase processing or simply processing, and (iii) ranking and selecting final keyphrases or postprocessing (see Fig. <ref type="figure" coords="5,133.24,209.60,3.61,8.79" target="#fig_2">3</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Candidate Keyphrase Selection</head><p>The proposed technique employs the Part-Of-Speech (POS) Tagging (POST) approach to extract candidate keyphrases from δ. Since keyphrases are generally noun phrases <ref type="bibr" coords="5,269.96,284.37,15.34,8.79" target="#b12">[13]</ref>, the proposed technique limits the extraction to only noun phrases <ref type="bibr" coords="5,84.33,309.28,15.34,8.79" target="#b12">[13]</ref>. For this, the following POS pattern is utilized, which has been demonstrated in <ref type="bibr" coords="5,189.51,321.73,16.68,8.79" target="#b51">[52]</ref> as one of the most suitable patterns for extracting candidate keyphrases.</p><formula xml:id="formula_1" coords="5,51.02,353.16,229.20,10.00">(&lt; NN. * &gt; + &lt; J J . * &gt;?)|(&lt; J J . * &gt;? &lt; NN. * &gt; +)</formula><p>Note that it is a regular expression that is written in a simplified format using NLTK's RegexpParser, where nouns are tagged with NN and adjectives are tagged with J J . More details could be found in <ref type="bibr" coords="5,194.72,411.26,15.34,8.79" target="#b22">[23]</ref>.</p><p>Once the candidate keyphrases are extracted, they are passed through a cleaning process to filter out those keyphrases that are less likely to be final keyphrases. For that, following conditions are applied: (i) any candidate keyphrase that contains non-alphabetic characters, (ii) any candidate keyphrase that contains single alphabetic word(s), and (iii) if the frequency of any candidate keyphrase fails to satisfy lsaf factor (see the "Conceptual Framework" section). The first two conditions filter out candidate keyphrases that make no sense to the human reader in general; and the latter one filters out all non-popular candidate keyphrases from the list.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Candidate Keyphrase Processing Using KeyPhrase Extraction (KePhEx) Tree</head><p>In conventional unsupervised keyphrase extraction techniques, candidate keyprhases are not processed; instead, they are sent to the ranking phase immediately after the selection. On the contrary, an intermediate phase between candidate keyphase selection and ranking could release the burden of ranking unnecessary keyphrases, and thus, lead to finding more appropriate keyphrases. The proposed KePhEx tree takes all the formerly mentioned hypotheses (see the "Preliminaries" section) into account for extracting final keyphrases. The KePhEx tree expands (hypothesis 3) or shrinks (hypothesis 2) or remains in the same state (hypothesis 1) based on the candidate keyphrases. The advantages of employing KePhEx tree in keyphrase extraction are threefold: (i) extracts quality keyphases from candidate keyphrases, (ii) provides flexibility during keyphrase extraction, and (iii) contributes in ranking by providing a value that represents cohesiveness of a word in a keyphrase with respect to a root.</p><p>Among different classes of tree data structure, the KePhEx tree falls under a binary tree. Again, although there exist several variants of a binary tree, it is different from others since the position of every node in the tree and its level are fixed. Again, all the predecessors of a node at the upper-levels (including root) are also fixed unlike other variants. It is so because a good keyphrase must be a coherently connected sequence of words that appear continuously in the text. Every node in a KePhEx tree holds a 2-tuple data along with other information, namely a word and its CI or μ value. The CI provides two advantages: (i) assists in finding the cohesiveness of various words with respect to the root of the tree, which is employed as a factor in ranking keyphrases and (ii) provides flexibility during keyphrase extraction as the value of μ increases or decreases based on the existence of that word in candidate keyphrases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Root Selection</head><p>It is important to select a qualified root since a poorly selected root may lead to a poor keyphrase. In this technique, only nouns are designated as roots, which are selected from the candidate keyphase list, χ, and are saved in another list, η. As noun phrases are the most likely candidate for final keyphrases, selecting them (i.e., nouns) as roots increases the chances of extracting quality final keyphrases.</p><p>After selecting the roots, the trees are formed taking these roots into consideration. The entire process from tree formation to final keyphrase extraction is segmented into three main steps, namely (i) tree formation, (ii) tree processing, and (iii) keyphrase extraction.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Tree Formation</head><p>For forming a KePhEx tree, a root, γ , is selected from η. Afterwards, the proposed system selects candidate keyphrases that contains γ . Let us denote them as similar candidate keyphrases, which could be defined as follows:</p><p>Definition 1 Similar candidate keyphrases, σ , are those candidate keyphrases that contain γ in them-irrespective of its position, and σ ⊆ χ.</p><p>A partial sample of σ for γ = servic could be: σ = {scalabl grid servic discoveri base, grid servic, servic discoveri mechan, scalabl web servic permiss, distribut grid servic discoveri architectur, servic discoveri architectur, grid discoveri servic, servic discoveri, grid inform servic, servic discoveri grid comput, servic technolog, servic discoveri function, grid servic call registri, web servic version, discoveri servic, servic properti, thi servic, index servic, servic discoveri, web servic commun, . . .}. Among them, the first encountered similar candidate keyphrase, σ 1 (e.g., scalabl grid servic discoveri base), is employed in forming the KePhEx tree and the rest are utilized in processing the tree (see the "Tree Processing" section).</p><p>Here, the process of tree formation starts by selecting the position of γ in σ 1 ; but the tree starts forming once the γ is assigned as the root of the tree and μ value is initialized to 1. For any other word (w i ), its position, w p i , is determined at first to decide in which subtree it would be placed. If position of γ , γ p , is more than w p i (i.e., γ p &gt; w p i ), it would be placed in the left subtree, otherwise (i.e., γ p &lt; w p i ), the right subtree. Again, the depth of w i , w d i , in a phrase with respect to γ is also necessary to calculate for determining the level of the tree where w i would be added, which could be defined as follows: Definition 2 Depth of w i , w d i , in a keyphrase is the distance of that word from γ irrespective of its direction, which is calculated as,</p><formula xml:id="formula_2" coords="6,107.40,641.83,71.42,15.10">w d i = |γ p − w p i |.</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Note that w d</head><p>i in a candidate keyphrase of w i and the level of w i in the KePhEx tree, w l i , are identical, and hence, they are used interchangeably in this paper. Once the subtree of w i is determined using w p i , w d i is calculated. The next condition to be satisfied is that all the predecessors must be in their respective places. This can be tracked by traversing the tree from level 0 to l − 1 and by comparing the word in each level with that of in σ 1 at that depth. Once these constraints are satisfied, w i is qualified for adding in the tree at level l. For that, a node is created by incorporating w i in it and initializing μ to 1.</p><p>Once all the words at the left side of γ are added in the left subtree, then the words at the right side of γ are added in the right subtree following the same procedure. The tree formation ends when all the words of σ 1 are added in the tree. This entire process is illustrated in Algorithm 1.</p><p>A sample tree is depicted in Fig. <ref type="figure" coords="6,446.76,222.01,3.75,8.79">4</ref>, which is formed using σ 1 = scalabl grid servic discoveri base and γ =servic. The tree formation starts by adding servic in the tree as root and initializing μ of the node to 1. Afterwards, all the words at the left side (i.e., grid and scalabl) are added in the left subtree in their respective levels, where levels are calculated based on their respective depths in σ 1 . For instance, since grid d = 1, grid is added at level 1 in left subtree, whereas, since scalabl d = 2, scalabl is added at level 2 in left subtree. Again, when grid is added in the tree, it is tracked that its predecessor servic is in the tree. Similarly, when scalabl is added in the tree, it is tracked that grid and servic are its predecessors, respectively. Once all the words at the left side of servic are added in the tree, the words at the right side (i.e., discoveri and base) are added in the right subtree employing a similar procedure as the left subtree.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Tree Processing</head><p>After forming the tree employing σ 1 , the rest of the similar candidate keyphrases, σ , where σ = {σ 2 , σ 3 , ..., σ n } are utilized to process the tree. For that, the cases that are mentioned in the "Preliminaries" section are taken into account, i.e., no tree processing is needed for case 1; the tree must be trimmed properly to remove unnecessary parts for case 2; and it must be expanded to put on necessary parts from all the similar candidate keyphrases in σ for case 3. This process is described in Algorithm 1. Let us fetch a similar candidate keyphrase, σ i , from σ , and utilizes it for processing the KePhEx tree. At first, γ p in σ i need to be determined. Like tree formation, the tree processing also starts from γ followed by the words at the left side of γ and then, right side. Afterwards, any word (w i ∈ σ i ) at position w p i is qualified to be added to the left subtree if w p i &lt; γ p ; otherwise, when w p i &gt; γ p , it is qualified to be added to the right subtree. Again, the depth (w d i ) is calculated to determine at which level w i is qualified to be added in the tree and all the predecessors (from 0 to l − 1) are checked with the ones in σ i before their inclusion.</p><p>At level l, where w i is qualified for possible inclusion, three events can occur: (i) there is no node, (ii) there is only one node, and (iii) there are two nodes. In the case of the first event, a node is created for w i by initializing μ to 1, and then, is added it as a left child for the left subtree or as a right child for the right subtree. For the second event, if the word in the node is the same as w i , then no node is added. Otherwise, a node is created like before and it is added as a new child at the present level in the subtree. Lastly, if both children already exist at that level, the new node with w i replaces the node whose word has the lowest TF. The reason is that any word with higher TF is highly likely to form a quality final keyphrase. For that, if the lower TF node is a leaf node, the new node will replace it. Otherwise, if it is a root of a subtree, then the subtree is deleted from the tree and the new node is added in that position. This process is deemed complete when all the words of σ i have been considered.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Update μ Values</head><p>The process of updating μ values starts as soon as the nodes of σ i have been added to the tree as demonstrated in Algorithm 2. It starts by determining γ p in σ i . If γ p is 0, i.e., γ is the leftmost word of σ i , μ values of all the nodes in the left subtree are decreased. Similarly, if γ p is |σ i |−1, i.e., γ is the rightmost word of σ i , μ values of all the nodes in the right subtree are decreased. Afterwards, the μ value of the root is increased and the tree is traversed and compared starting from the left subtree followed by the right subtree using iterative procedures.</p><p>At a given level l for any w i , three events may occur: (i) w i is absent in l, (ii) w i is present as a left child, and (iii) w i is present as a right child. For the first event, μ values of all the nodes in the left and right subtree are decreased. In the second case, μ value of the left child is increased, whereas they are decreased for the nodes in the right subtree, and then, move to the next level. In the case of the last event, μ value of the right child is increased, whereas they are decreased for the nodes in the left subtree, and then, move to the next level. This procedure continues until all the words are taken into account.</p><p>An example of tree processing and updating μ values are demonstrated in Fig. <ref type="figure" coords="8,409.01,284.28,3.75,8.79" target="#fig_4">5</ref>, where tree in Fig. <ref type="figure" coords="8,496.00,284.28,5.00,8.79">4</ref> is utilized as the initial tree. Again, the tree is formed using σ 1 in σ , and the rest (i.e., σ ) are utilized to process the tree. As in Fig. <ref type="figure" coords="8,351.56,321.64,7.96,8.79" target="#fig_4">5a</ref>, since σ 1 is grid servic, and both the words already exist in the tree in sequence, the tree remains in the same state as before. However, μ values of the nodes that contain grid and servic are increased, and all others are decreased. In Fig. <ref type="figure" coords="8,380.40,371.45,8.34,8.79" target="#fig_4">5b</ref>, among the three words, only mechan does not exist in the right subtree at level 2; therefore, it is added as the left child. Afterwards, μ values are increased based on σ 2 . Similarly, the tree keeps amending with every encountered σ i and μ values are also updated accordingly. This process keeps continuing until all the keyphrases in σ are processed. Although this example demonstrates only expansion or no change of tree state, the shrinkage occurs in the keyphrase extraction phase. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Keyphrase Extraction</head><p>This process is initiated by pruning the weak nodes from the tree. Here, weak nodes are selected based on their cohesiveness with respect to γ with an assumption that they may not be the parts of final keyphrases. For that, a constant integer value, named minimum allowable μ (mamu), is utilized. A node whose μ value is lower than the mamu is pruned from the tree. For instance, in Fig. <ref type="figure" coords="10,241.75,569.33,7.96,8.79" target="#fig_4">5e</ref>, it could be observed that several nodes in the tree contain lower μ values, i.e., their cohesiveness with respect to γ is weak, and hence, most likely, they would not be a part of the final keyphrase. Now, mamu value determined which nodes to keep in the tree and which to prune from the tree. Such a tree is depicted in Fig. <ref type="figure" coords="10,163.51,644.05,3.75,8.79">6</ref>, where mamu is considered as 2.</p><p>Hence, if that node is a root of a subtree than that entire subtree is also erased from the tree with the assumption that a weak root would form a weak subtree. Again, a mamu value must be selected with considerable attention because a smaller mamu value results in many and/or long keyphrases, whereas a large mamu value results in lower and/or abbreviated keyphrases. Therefore, it is essential to find a suitable mamu value for improved performance of the system. Hence, this paper conducts an experiment to find a suitable mamu value (see the "Parameter Value Selection" section). Again, this mamu value also provides flexibility during keyphrase extraction.</p><p>Afterwards, all paths from the root to the leaves are extracted to discover final keyphrases. Since this procedure is dissimilar to any conventional tree traversal technique (namely preorder, inorder, and postorder), they are not directly applicable in this case. Hence, inorder tree traversal technique is enhanced to perform the task, which is explained in Algorithm 3. This algorithm extracts all the paths from root to leaf and separates them in left paths (paths from left subtree) and right paths (paths from right subtree), which are later processed to generate final keyphrases individually (one final keyphrase from one path) or collectively (by joining a path from the left servic, 45 grid, 4 discoveri, 7 architectur, 3</p><p>Fig. <ref type="figure" coords="11,64.97,162.92,4.23,7.60">6</ref> The resultant tree for mamu = 2 for the KePhEx tree in Fig. <ref type="figure" coords="11,280.51,163.11,4.25,7.47" target="#fig_4">5</ref> subtree and a path from the right subtree) as demonstrated in Algorithm 4. Now, in the case of left paths, since they are extracted from root to leaf, they are unlikely to be the final keyphrases as they are aligned in reverse direction, and hence, misses the coherent relationship. Therefore, all left paths are reversed before extracting final keyphrases. Afterwards, all the words are acquired from each path and a keyphrase is formed. Then, its presence (entirely) is checked in χ as a candidate keyphrase or a part of candidate keyphrase. A similar technique is followed to extract keyphrases from right paths with an exception is that the paths are not reversed since they are already satisfying the coherent relationship conditions. After acquiring all the final keyphrases from the left and right paths, they are concatenated to generate more long and meaningful keyphrases. Again, these keyphrases will qualify as final keyphrases if they are entirely found in χ as candidate keyphrases or part of candidate keyphrases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Flexibility During Keyphrase Extraction</head><p>The proposed technique offers flexibility in keyphrase extraction via employing the mamu values. As an example, Table <ref type="table" coords="11,232.28,471.59,5.00,8.79" target="#tab_0">1</ref> is generated using the tree in Fig. <ref type="figure" coords="11,142.81,484.03,3.75,8.79">6</ref>. As expected, for different mamu values, different final keyphrases are generated. These keyphrases also differ in length and quantity. For instance, the longest keyphrase generated by mamu values from 1 to 3 is 4, whereas it is 3 for mamu value 4, 2 for mamu values from 5 to 7 and so on. On the other hand, for mamu values from 1 to 4, 3 final keyphrases are extracted, whereas it is only 1 for mamu values from 5 to 45 and 0 afterwards. From here, we can conclude that a greedy approach may choose a lower mamu value and hence, would get considerably many and/or lengthy keyphrases; but the quality would be a little bit compromised. On the other hand, a conservative approach may choose a large mamu value which will in turn provide considerably lower and/or mostly abbreviated keyphrases. Hence, to receive a desired level of performance, mamu value must be set properly. To realize this, an experimental evaluation is performed in the "Results and Discussion" section and the results are analyzed with detail evidences.</p><p>After extracting all the final keyphrases from the tree for a γ , the next γ is chosen from the list η and the same procedure is repeated again. It continues until all the nouns in η are considered as γ . After finish extracting all the final keyphrases, they are passed for ranking and selecting.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Ranking and Selecting Final Keyphrases</head><p>Generally, automatic keyphrase extraction techniques extract a good number of final keyphrases. However, various applications including recommender system and document indexing techniques utilize only a certain number of top keyphrases. Therefore, an automatic keyphrase extraction technique must offer the most relevant top-N keyphrases to these applications. Hence, keyphrase extraction is also accounted for as a ranking problem.</p><p>In the proposed ranking technique, the μ value is employed along with the TF as follows to calculate weight, ω of a keyphrase p:</p><formula xml:id="formula_3" coords="11,306.15,479.36,238.11,31.67">ω p = N k=1 tf k × N k=1 μ k (1)</formula><p>Here, N is the number of words in p. The first factor in Eq. 1, i.e., TF, is utilized to identify the popularity of that particular keyphrase in a document with an assumption that the non-popular keyphrases are unlikely to become a final keyphrase. For that, TF of all the words in p are summed together. It is noteworthy to mention that instead of averaging each factor, summation is performed to eliminate the bias towards the single terms. Again, the second factor is for realizing the cohesiveness of every word in that keyphrase to γ , which can be found by summing the μ values of all the words in p.</p><p>After calculating the ω values for all keyphrases, they are sorted to arrange them in rank. Since the quantity of final keyphrases is limited, any sorting algorithm is suitable. In the proposed system, the quick sort <ref type="bibr" coords="11,446.63,696.01,16.67,8.79" target="#b26">[27]</ref> algorithm is applied to perform the task rapidly. After ranking, these keyphrases are ready to be rendered. Now, when a user or an application seeks for any N keyphrases, the system will provide top-N keyprhases from the rank 1 to N, respectively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Experimental Setup</head><p>Since the proposed technique is an unsupervised machine learning based technique, its performance is compared with other relevant unsupervised techniques. For this, both statistical (TF-IDF and YAKE) and graph-based (singleRank (SR), positionRank (PR), topicRank (TR), and multipartiteRank (MR)) keyphrase extraction techniques are considered. All of these techniques are evaluated under a uniform experimental setup taking multiple available benchmark corpora into consideration, which are elaborated in the subsequent section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Corpora Details</head><p>The primary corpus that has been employed for testing the proposed technique along with other similar techniques is the SemEval-2010 <ref type="bibr" coords="12,127.02,334.18,15.34,8.79" target="#b32">[33]</ref>. This dataset is composed of a train and a test dataset along with other datasets that are collected from the ACM Digital Library. Since our proposed technique and all the compared techniques are unsupervised techniques, train and test datasets are not utilized as per their literal meaning. Therefore, they are denoted as set 1 and set 2, respectively in this paper, which will also eliminate any further confusions. This corpus has been chosen since it ensures the variability in terms of topics. Here, all the papers are clustered in four groups following four 1998 ACM classifications: C2.4-Distributed Systems, H3.3-Information Search and Retrieval, I2.11-Distributed Artificial Intelligence-Multiagent Systems, and J4-Social and Behavioral Sciences-Economics. The distribution of documents in the corpus is mentioned in Table <ref type="table" coords="12,239.65,508.53,3.75,8.79" target="#tab_1">2</ref>.</p><p>All the documents in the corpus are in plain text and the average length of these documents is about 2000 words. Although the XML version of this dataset exists, we prefer text dataset since the former one is heavy, verbose, and rare. For comparison, gold standard keyphrases have been employed that come along with the dataset and composed of author-assigned keyphrases and readerassigned keyphrases. Table <ref type="table" coords="12,422.96,72.57,5.00,8.79" target="#tab_2">3</ref> exhibits the distribution of author-and reader-assigned keyphrases in the corpus. Again, for testing the domain independence of the proposed technique, Theses100 benchmark dataset <ref type="bibr" coords="12,517.20,109.93,16.67,8.79" target="#b68">[69]</ref> is employed. This dataset is composed of 100 master and Ph.D. theses from the University of Waikato, New Zeland. All the documents are in plain text, and the average length of these documents is about 7000 words. For comparison, gold standard keyphrases have been taken into account that come along with the dataset.</p><p>Furthermore, a German Research Article dataset has been created to test the language independence of the proposed technique due to the absence of such benchmark dataset, which is later uploaded in for further reference. All the articles in this dataset are collected from various open score research article database <ref type="bibr" coords="12,450.24,259.36,15.35,8.79" target="#b50">[51]</ref>. All the documents in this corpus are in plain text and the average length of these documents is about 2000 words. For comparing the performance of various keyphrase extraction techniques, author-assigned keyphrases are considered as gold standard keyphrases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Evaluation Metrics</head><p>Three prominent and relevant metrics, namely, precision ( ), recall (ς), and F1-score (φ) have been used for comparing the proposed technique's performance with other considered techniques. Here, is the ratio of correctly predicted positive values with respect to the total predicted values. It can be calculated using the following formula:</p><formula xml:id="formula_4" coords="12,314.62,451.04,229.63,23.90">= κ correct κ extract (2)</formula><p>where, κ correct is the number of correctly matched keyphrases with gold standard keyphrases and κ extract is the number of extracted keyphrases from a document, i.e., value of N in case of extracting top-N keyphrases.</p><p>On the other hand, ς is the ratio of correctly predicted positive values with respect to the actual positive values and can be calculated as follows:</p><formula xml:id="formula_5" coords="12,306.14,574.26,238.11,23.93">ς = κ correct κ standard<label>(3)</label></formula><p>where, κ standard is the number of keyprhases in gold standard keyphrase list for that particular document. Again, φ is the weighted average of and ς, which can be calculated using the following formula:</p><formula xml:id="formula_6" coords="13,51.02,95.80,238.11,24.11">φ = 2 × × ς + ς (4)</formula><p>This metric is much more sophisticated than conventional accuracy metric since it takes both false positives and false negatives into consideration.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Implementation Details</head><p>The proposed technique is implemented using Python3 employing several necessary packages, such as PorterStemmer <ref type="bibr" coords="13,69.87,234.62,15.84,8.79" target="#b30">[31,</ref><ref type="bibr" coords="13,88.99,234.62,12.51,8.79" target="#b31">32,</ref><ref type="bibr" coords="13,104.79,234.62,11.88,8.79" target="#b46">47]</ref>, Sent tokenize, Word tokenize of Natural Language Tool Kit <ref type="bibr" coords="13,127.70,247.07,10.83,8.79" target="#b3">[4,</ref><ref type="bibr" coords="13,140.64,247.07,11.88,8.79" target="#b61">62]</ref>, Regular Expression <ref type="bibr" coords="13,238.79,247.07,15.84,8.79" target="#b12">[13,</ref><ref type="bibr" coords="13,256.74,247.07,11.88,8.79" target="#b37">38]</ref>, and so on. Note that all the words are stemmed initially before passing them to the processing phase employing porter-Stemmer. Again, for gold standard keyphrases, no such processing is required since they are already stemmed.</p><p>For other compared techniques, Python Keyphrase Extraction (PKE) toolkit <ref type="bibr" coords="13,161.52,321.79,15.37,8.79" target="#b4">[5]</ref>-which is an open-source python-based keyphrase extraction toolkit-is utilized. Here, we would like to mention that for all the experiments, whatsoever, a uniform experimental environment is offered to ensure a level playing ground for all the techniques. For the compared techniques, top-N keyprhases are acquired from the PKE using respective Application Programming Interfaces (APIs). Afterwards, these acquired keyphrases are compared with the gold standard keyphrases, and then, metrics are calculated accordingly. All experimental codes and corpus are currently available in <ref type="bibr" coords="13,204.81,446.32,16.66,8.79" target="#b49">[50]</ref> for access upon request.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results and Discussion</head><p>This section includes the results that are acquired from the experiments along with their detail analyses. It starts with selecting suitable parameter values which have direct influence on the performance of the proposed technique. For other compared techniques, standard parameter values are selected as suggested in <ref type="bibr" coords="13,403.90,147.29,10.63,8.79" target="#b4">[5]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Parameter Value Selection</head><p>Among various parameters of the proposed technique, two parameters have definite impacts on the performance, which are lsaf (discussed in the "Conceptual Framework" section) and mamu (discussed in the "Keyphrase Extraction" section). Here, the former parameter is utilized to filter out all non-popular candidate keyphrases from the list and the latter plays an important role in extracting keyphrases from the resultant tree. As mentioned earlier, a lower mamu value would result in many but low-quality keyphrases, whereas a high mamu value would result in few but abbreviated keyphrases. Therefore, it is necessary to determine, which mamu value would give the superlative performance.</p><p>For determining the suitable lsaf value, an experiment has been performed varying it from 0 to 5 for two arbitrarily selected mamu values. The experiments are performed on set 2 dataset to acquire top-N keyphrases, where N = 5, 10, and 15, which are then utilized to calculate precision, recall, and F1-score. The acquired results are demonstrated in Table <ref type="table" coords="13,343.86,421.31,3.75,8.79" target="#tab_3">4</ref>. The highest performance shown for F1 value is 15.6 for top-15 keyphrases by lsaf values 3 and 4, whereas the lowest performance shown is 10.5 for the top-5 keyphrases by lsaf value 1. It is because a lower value of Again, to select a suitable mamu value, we also conduct another set of experiments varying mamu values from 0 to 5, fixing lsaf to 3, and taking set 1 and set 2 datasets of the corpus into consideration. For both datasets, results are acquired for top-N keyphrases, where N = 5, 10, and 15. All the acquired results are stated in Tables <ref type="table" coords="14,224.93,197.10,29.24,8.79" target="#tab_6">5 and 6</ref> for set 1 and set 2 datasets, respectively. They are also plotted using contour graphs in Figs. <ref type="figure" coords="14,145.75,222.01,29.44,8.79">7 and 8</ref> for more depictions.</p><p>As could be observed from the tables as well as from the figures is that performance differences in several mamu values are not as evident as lsaf values since we have already filtered out non-popular keyphrases by selecting lsaf = 3. The highest F1 achieved is 15.6 for set 2 dataset and 13.2 from set 1 dataset, and both cases, it is achieved by mamu = 2. Again, for most of the cases with increasing mamu values, performance increases to a certain point, and afterwards, it decreases. In our case, mamu = 2 is the threshold for both the datasets. The reason is that it maintains the trade-off between the keyphrase length and quantity. On the other hand, smaller mamu values produce considerably many and/or lengthy keyphrases; but the quality is a little bit compromised, whereas higher mamu values attain considerably lower and/or mostly abbreviate keyphrases. In the latter case, since lengthy keyphrases are ignored, the performance is also a little bit compromised. Hence, mamu = 2 is locked for the rest of the experiments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results Analyses</head><p>Here, we would like to note that the performance of all the technique would have improved if 15% of the readerassigned keyphrases that are absent would have appeared in the text, and if 19% of the author-assigned keyphrases that are absent would have appeared in the text. Hence, all Fig. <ref type="figure" coords="14,320.03,231.92,4.23,7.60">7</ref> Performance of the proposed technique for various μ values on set 1 dataset the results in this paper are based on 85% and 81% for the reader-and author-assigned keyphrases, respectively.</p><p>For all the techniques, three experiments are performed for each dataset with a target of extracting top-N keyphrases, where N = 15 is preferred in many literatures <ref type="bibr" coords="14,352.47,358.78,15.84,8.79" target="#b32">[33,</ref><ref type="bibr" coords="14,374.63,358.78,11.88,8.79" target="#b33">34]</ref>, and hence, is our choice. Again, once we have top-15 keyphrases, we can derive the top 5 and top-10 keyphrases from there. These experiments are performed for (i) reader-assigned keyphrases, (ii) author-assigned keyphrases, and (iii) combined keyphrases (combines reader-and author-assigned keyphrases). The acquired results for set 2 dataset are shown in Tables <ref type="table" coords="14,526.04,433.51,14.46,8.79" target="#tab_8">7, 8</ref>, and 9 for reader-assigned, author-assigned, and combined keyphrases, respectively.</p><p>From the tables, it could be observed that generally, statistical-based techniques performed better than graphbased techniques. It is because graph-based techniques are not good in capturing the cohesiveness of words in a keyphrase, experience clustering errors, suffer from error propagation problem and so on, which are mentioned the "Related Works" section. On the other hand, statistical-based techniques are simple to implement and utilize basic features, like term frequency, inverse document frequency, word positions, and word relatedness to a context to extract the most descriptive terms in a document. Despite that, they demonstrate better performance over the graph-based techniques because statistical characteristics of the aforementioned basic features repeat over and over in most of the documents for the top keyphrases.</p><p>Again, among all the graph-based techniques, SR performs the worst in terms of all the considered metrics. The highest F1 achieves by this technique is only 1.9 for top-15 in the case of reader-assigned gold standard keyphrases, whereas the lowest is 0.3 for top-5 keyphrases in the case of author-assigned gold standard keyphrases. It is because SR assigns higher scores to long but nonsignificant keyphrases. In detail, SR assigns the weights of the edges based on the number of co-occurrences. Afterwards, keyphrases are extracted in the form of noun phrases and then ranked based on the sum of the significance of the words they contain. Therefore, nonsignificant long keyphrases receive higher scores than abbreviated keyphrases.</p><p>With respect to SR, PR outperforms the former in terms of all the metrics and for all top-N keyphrases. This happens because it incorporates the position information of a word and its occurrences to score words. It receives an average F1 score of 3.57 for reader-assigned keyphrases, 1.9 for authorassigned keyphrases, and 3.63 for combined keyphrases for all the top-N cases that we considered in this paper. However, it fails to ensure topical coverage and diversity that are not naturally handled by this kind of graphs.</p><p>On the other hand, due to taking the topical coverage into account, TR overpowers PR technique for any metric or any parameter, which was absent in the latter technique. Here, topic relations are accounted to find the Fig. <ref type="figure" coords="15,323.07,222.92,4.23,7.60">9</ref> F1 scores of various unsupervised keyphrase extraction techniques for top-5 keyphrases employed on set 2 dataset semantic relatedness between the candidate keyphrases they instantiate. It demonstrates an average performance improvement of 93.55% over PR for reader-assigned keyphrases, 216.82% for author-assigned keyphrases, and 119.24% for combined keyphrases. Again, F1 value of top-5 keyphrases contributes more in these performance differences-around 140% for reader-assigned, 385% for author-assigned, and 200% for combined keyphrases. Although it maximizes the topical coverage, it suffers from several limitations. For instance, all candidates under a single topic are considered equally, and therefore, post-ranking heuristics are necessary to select the most representative keyphrases from each topic. Again, if any error occurs while forming topics, it will propagate throughout the model and thus negatively impacts its performance.</p><p>Since MR resolves the issue of error propagation, it performs superiorly over TR, and thus over SR and PR. To resolve this issue, MR utilizes the multipartite graph, hence the name, which connects sets of topic related candidates tightly. The average F1 receives for reader-assigned keyphrases is 8; whereas, it is for authorassigned keyphrases is 5.47, and combined keyphrases is 7.33. However, it struggles with selecting the most representative candidates due to clustering errors, where candidate keyphrases could be wrongly assigned to the same topic.</p><p>Among the statistical-based approaches, TF-IDF performs comparably to MR for all the metrics and attributes. For instance, it receives an average F1 of 7 for readerassigned keyphrases, 6.8 for author-assigned keyphrases, and 8.57 for combined keyphrases. In TF-IDF, IDF provides informativeness and TF provides aboutness. Here, TF discriminates the non-popular keyphrases from the popular keyphrases in a document, whereas IDF discriminates between informative and non-informative keyphrases across the documents. A keyphrase receives high IDF when it is rare along the collections. However, it favors single terms or bias towards single terms over compound terms, and hence, demonstrates considerably lower performance over YAKE on set 2 dataset.</p><p>In the case of YAKE, it takes five features into account, namely casing, word position, word frequency, word relatedness to context, and word in the different sentences, to rank keyphrases. Since many quality keyphrases pursue these statistical features unconsciously, it shows better performance over TF-IDF technique. It receives an average performance enhancement of 47.53% for reader-assigned keyphrases, 38.95% for author-assigned keyphrases, and 34.83% for combined keyphrases. However, since candidate keyprhases are generated using N-grams technique, where N is 1-, 2-, and 3-grams, a considerably large number of keyphrases are generated, which entices ranking procedure.</p><p>In terms of any metric and any attribute, TeKET outperforms the other techniques that are considered in this evaluation significantly. For instance, it outperforms YAKE by 21.51% for F1 measure on an average in case of reader-assigned keyphrases, 5.61% in case of authorassigned keyphrases, and 20.49% in case of combined keyphrases. Again, our proposed technique receives the highest F1 value among all the techniques, i.e., 15.6, for top-15 keyphrases in case of combined gold standard keyphrase list. One of the reasons for its excellent performance is that it extracts final keyphrases from candidate keyphrases using the KePhEx tree, and hence, considers most likely keyphrases during ranking. In addition, it utilizes two factors (TF and μ) in ranking, where the preceding factor is utilized to discriminate non-popular keyphrases from popular keyphrases and the latter factor is utilized to find the cohesiveness of various words in a keyphrase with respect to the root. Again, in the calculation, summation is preferred over average to facilitate longer keyphrases.</p><p>In Figs.  others. The reasons of their performance differences are same as before. The acquired results for set 1 data are plotted in Tables <ref type="table" coords="19,79.81,304.54,23.76,8.79" target="#tab_11">10, 11</ref>, and 12 for reader-assigned, author-assigned, and combined keyphrases respectively. Likewise for set 2, all the results are acquired for three metrics and compared with top-N keyphrases, where N = 5, 10, and 15. The average F1 scored by the SR technique for all cases is 1.05, which is the lowest among all. On the other hand, it is 2.7, 4.84, and 6.03 for PR, TR, and MR, respectively. Due to utilizing multipartite graph, it extracts more gold standard keyphrases than others. Again, the average F1 scores for TF-IDF and YAKE are 5.06 and 6.63, respectively. Unlike set 2 data, TF-IDF performs worse than MR for set 1 data; however, the latter almost catches YAKE in terms of F1 score. Conversely, our proposed technique overpowers all the considered techniques with an average F1 score of 10.13 for the reasons that are stated before.</p><p>The F1 scores of various gold standard keyphrase classes (reader, author, and combined) for set 1 data are shown </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TeKET Is Domain Independent</head><p>To demonstrate the domain independence property of the proposed technique, we have conducted an experiment on the Theses100 dataset (see the "Corpora Details" section for a detailed description) following a similar experimental environment discussed in the "Evaluation Metrics" section. The justification for selecting such a dataset is to highlight that the proposed technique also works satisfactorily with a large amount of words. The average length of the documents in Theses100 dataset is ∼ 7, 000 words with respect to ∼ 2, 000 words in research articles. The obtained results of the experiments are reported in Table <ref type="table" coords="19,457.37,509.21,8.34,8.79" target="#tab_13">13</ref>.</p><p>It can be seen from the obtained results that the performance of almost all the comparable techniques deteriorates in terms of the considered metrics. One of the reasons for this low performance is that, when a document contains many words (as in a thesis), keyphrase extraction technique produces a large number of keyphrases. This, in turn, makes it very challenging to select top-N keyphrases from there for the ranking procedure. Now, while comparing the performance of TeKET to other relevant techniques considered in this paper, TEKET outperforms the other techniques significantly in any metric and attribute. For example, TeKET outperforms its closest competitor, YAKE, by 5.2% on F1 measure for all top-N keyphrases. The reason behind this is that TeKET employs an intermediate phase to extract final keyphrases from the candidate keyphrases through the KePhEx tree, In general, all the graph-based techniques exhibit inferior performance than YAKE and TeKET since they have a number of shortcomings including not being good in capturing the cohesiveness of words, subject to clustering errors, experiences error propagation problem, etc. Among them, MR performs the best in terms of all the considered metrics. The highest F1 achieved by MR is only 5.2 for top-5 keyphrases and the lowest is 4.0 for top-15 keyphrases. It is mainly due to resolving the error propagation problem that exists in TR. Now, TR is the closest competitor to MR with the highest F1 score of 4.7 for top-5 keyphrases. Among the rest, the performance of PR and SR is negligible.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TeKET Is Language Independent</head><p>To demonstrate the language independence of the proposed technique, a German Research Article dataset <ref type="bibr" coords="20,509.53,324.49,16.67,8.79" target="#b50">[51]</ref> has been employed (see the "Corpora Details" section for details). Necessary adaptations have been made to all relevant techniques including the proposed one to ensure the experiment's successful run. The obtained results have been reported in Table <ref type="table" coords="20,376.71,386.75,8.34,8.79" target="#tab_14">14</ref>.</p><p>We can see in the reported results that the performance of PR, SR, and TF-IDF are negligible (i.e., almost zero). In the case of SR, since it has a tendency of assigning higher scores to long but non-significant keyphrases, it fails to find gold standard keyphrases from the top ranked ones. On the other hand, in the case of PR, due to its inaccurate weight assignments to various keyphrases belonging to a single topic, it also fails to score better. Again, in the case of TF-IDF, it fails due to receiving higher ranks by the inferior keyphrases. In the case of TR, it exhibits relatively better performance as it takes topical coverage into account. The highest F1 score it receives is 6.4 for top-10 keyphrases, which is higher than that of YAKE. The latter only receives higher F1 score for top-5 keyphrases. For this corpus, TeKET and MR perform comparably. For instance, although TeKET outperforms MR for top-5 keyphrases, it suffers a defeat for top-15 keyphrases. For top-10 keyphrases, both exhibit identical performance. The reason for MR's better performance is due to solving the error propagation problem of the TR technique. Based on the aforementioned discussions and the reported results in the table, we can conclude that the proposed technique is also language independent.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusions</head><p>In this paper, a new unsupervised automatic keyphrase extraction technique, named Tree-based Keyphrase Extraction Technique (TeKET) is proposed, which is domain and language independent, employs limited statistical knowledge, but no train data are required. It introduces a new variant of binary tree, called KeyPhrase Extraction (KePhEx) tree), for extracting final keyphrases from candidate keyphrases. The proposed tree is formed using a candidate keyphrase and processed with other similar candidate keyphrases of a certain root. In the end, the tree is pruned before extracting final keyphrases employing the mamu value, which also provides flexibility during keyphrase extraction process from the tree. Afterwards, all the final keyphrases are extracted from the resultant tree and they are ranked taking TF and μ factors into account, and then, sorted. At last, top-N keyphrases are selected from the sorted list and returned.</p><p>Our proposed technique is compared with other prominent unsupervised keyphrase extraction techniques on a uniform experimental setup. The results are acquired for three datasets, namely SemEval-2010, Theses100, and German Research Article to evaluate their performance. According to the acquired results, TeKET outperforms the rest of the compared techniques in terms of F1 scores for all considered parameters. They also establish the claim of domain and language independence of the proposed technique.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0" coords="2,51.02,260.92,184.32,7.67;2,104.61,92.15,129.16,121.24"><head>Fig. 1</head><label>1</label><figDesc>Fig. 1 Prominent applications of keyphrase extraction</figDesc><graphic coords="2,104.61,92.15,129.16,121.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1" coords="3,51.02,301.91,325.05,7.67;3,84.63,60.68,425.32,230.68"><head>Fig. 2</head><label>2</label><figDesc>Fig. 2 Functional details of various machine learning-based technique for keyphrase extraction</figDesc><graphic coords="3,84.63,60.68,425.32,230.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2" coords="5,51.02,671.72,174.99,7.67;5,51.63,543.53,236.71,117.91"><head>Fig. 3</head><label>3</label><figDesc>Fig. 3 Functional details of the proposed technique</figDesc><graphic coords="5,51.63,543.53,236.71,117.91" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3" coords="6,306.14,684.64,238.11,7.67;6,306.14,694.09,154.75,8.50"><head>1 Fig. 4 A</head><label>14</label><figDesc>Fig.<ref type="bibr" coords="6,321.03,684.64,4.23,7.60" target="#b3">4</ref> A newly created tree using the candidate keyphrase, scalabl grid servic discoveri base, where γ = servic</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4" coords="8,51.02,695.08,364.71,8.50"><head>Fig. 5</head><label>5</label><figDesc>Fig.<ref type="bibr" coords="8,64.97,695.64,4.23,7.60" target="#b4">5</ref> Several tree processing steps are shown for various similar candidate keyphrases, where γ = servic</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5" coords="16,51.02,221.91,238.11,7.67;16,51.02,232.12,202.24,7.47"><head>Fig. 10 F1</head><label>10</label><figDesc>Fig. 10 F1 scores of various unsupervised keyphrase extraction techniques for top-10 keyphrases employed on set 2 dataset</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6" coords="16,306.14,221.91,238.11,7.67;16,306.14,232.12,202.23,7.47"><head>Fig. 11 F1</head><label>11</label><figDesc>Fig. 11 F1 scores of various unsupervised keyphrase extraction techniques for top-15 keyphrases employed on set 2 dataset</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7" coords="19,51.02,699.58,238.11,7.67;19,51.02,709.78,202.24,7.47"><head>Fig. 13 F1Fig. 14 F1</head><label>1314</label><figDesc>Fig. 13 F1 scores of various unsupervised keyphrase extraction techniques for top-10 keyphrases employed on set 1 dataset</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0" coords="11,51.02,562.71,238.11,149.11"><head>Table 1</head><label>1</label><figDesc>Final keyphrases from the resultant tree in Fig.6</figDesc><table coords="11,51.02,581.86,238.11,129.95"><row><cell>SN</cell><cell>mamu (+ve value)</cell><cell>Final keyphrase</cell></row><row><cell>1</cell><cell>1t o3</cell><cell>g r i ds e r v i c</cell></row><row><cell>2</cell><cell>1 to 3</cell><cell>servic discoveri architectur</cell></row><row><cell>3</cell><cell>1 to 3</cell><cell>grid servic discoveri architectur</cell></row><row><cell>4</cell><cell>4</cell><cell>grid servic</cell></row><row><cell>5</cell><cell>4</cell><cell>servic discoveri</cell></row><row><cell>6</cell><cell>4</cell><cell>grid servic discoveri</cell></row><row><cell>7</cell><cell>5 to 7</cell><cell>servic discoveri</cell></row><row><cell>8</cell><cell>8 to 45</cell><cell>servic</cell></row><row><cell>9</cell><cell>≥ 46</cell><cell>-</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1" coords="12,51.02,621.31,238.12,90.23"><head>Table 2</head><label>2</label><figDesc>Number of documents per topic in the four ACM document classifications</figDesc><table coords="12,51.02,650.46,232.13,61.08"><row><cell>Dataset</cell><cell>Total</cell><cell cols="2">Document topic</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>C</cell><cell>H</cell><cell>I</cell><cell>J</cell></row><row><cell>Set 1</cell><cell>144</cell><cell>34</cell><cell>39</cell><cell>35</cell><cell>36</cell></row><row><cell>Set 2</cell><cell>100</cell><cell>25</cell><cell>25</cell><cell>25</cell><cell>25</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2" coords="12,306.14,651.74,238.13,59.79"><head>Table 3</head><label>3</label><figDesc>Keyphrase distribution of gold standard in different datasets</figDesc><table coords="12,306.14,670.90,238.13,40.64"><row><cell>Dataset</cell><cell>Author assigned</cell><cell>Reader assigned</cell><cell>Combined</cell></row><row><cell>Set 1</cell><cell>559</cell><cell>1824</cell><cell>2223</cell></row><row><cell>Set 2</cell><cell>387</cell><cell>1217</cell><cell>1482</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3" coords="13,51.02,491.69,493.23,181.99"><head>Table 4</head><label>4</label><figDesc>Performance of proposed technique for various lsaf values for two arbitrarily selected μ values on set 2 dataset lsaf incorporates non-popular keyphrases during ranking, and thus, entice ranking approach. From the results, it is evident that with increasing lsaf value, F1 value increases for any mamu value until lsaf = 3; afterwards, it becomes almost steady. Hence, 3 could be considered as the threshold value of lsaf and is utilized in other experiments.</figDesc><table coords="13,51.02,510.83,493.23,162.85"><row><cell>lsaf</cell><cell>μ</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell></row><row><cell>1</cell><cell>0</cell><cell>20.3</cell><cell>7.1</cell><cell>10.5</cell><cell>16.2</cell><cell>11.5</cell><cell>13.3</cell><cell>13.5</cell><cell>14.1</cell><cell>13.7</cell></row><row><cell>1</cell><cell>2</cell><cell>20.5</cell><cell>7.2</cell><cell>10.6</cell><cell>16.8</cell><cell>11.9</cell><cell>13.8</cell><cell>14.0</cell><cell>14.6</cell><cell>14.2</cell></row><row><cell>2</cell><cell>0</cell><cell>21.3</cell><cell>7.6</cell><cell>11.2</cell><cell>17.2</cell><cell>12.3</cell><cell>14.2</cell><cell>14.3</cell><cell>15.2</cell><cell>14.6</cell></row><row><cell>2</cell><cell>2</cell><cell>21.9</cell><cell>7.8</cell><cell>11.5</cell><cell>17.0</cell><cell>12.1</cell><cell>14.1</cell><cell>14.4</cell><cell>15.3</cell><cell>14.7</cell></row><row><cell>3</cell><cell>0</cell><cell>21.3</cell><cell>7.6</cell><cell>11.1</cell><cell>17.7</cell><cell>12.6</cell><cell>14.6</cell><cell>14.9</cell><cell>15.8</cell><cell>15.3</cell></row><row><cell>3</cell><cell>2</cell><cell>21.3</cell><cell>7.6</cell><cell>11.1</cell><cell>17.8</cell><cell>12.6</cell><cell>14.6</cell><cell>15.3</cell><cell>16.1</cell><cell>15.6</cell></row><row><cell>4</cell><cell>0</cell><cell>21.6</cell><cell>7.7</cell><cell>11.28</cell><cell>17.9</cell><cell>12.71</cell><cell>14.74</cell><cell>15.2</cell><cell>16.1</cell><cell>15.5</cell></row><row><cell>4</cell><cell>2</cell><cell>21.6</cell><cell>7.7</cell><cell>11.28</cell><cell>17.9</cell><cell>12.71</cell><cell>14.75</cell><cell>15.3</cell><cell>16.2</cell><cell>15.6</cell></row><row><cell>5</cell><cell>0</cell><cell>21.6</cell><cell>7.7</cell><cell>11.28</cell><cell>17.9</cell><cell>12.71</cell><cell>14.74</cell><cell>15.1</cell><cell>16</cell><cell>15.4</cell></row><row><cell>5</cell><cell>2</cell><cell>21.6</cell><cell>7.7</cell><cell>11.28</cell><cell>17.9</cell><cell>12.71</cell><cell>14.75</cell><cell>15.2</cell><cell>16.1</cell><cell>15.5</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4" coords="14,51.02,580.43,493.23,131.11"><head>Table 5</head><label>5</label><figDesc>Performance of proposed technique for various μ values on set 1 dataset</figDesc><table coords="14,51.02,599.57,493.23,111.97"><row><cell>μ</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell></row><row><cell>0</cell><cell>17.6</cell><cell>6.0</cell><cell>8.8</cell><cell>14.8</cell><cell>9.9</cell><cell>11.7</cell><cell>13.3</cell><cell>13.6</cell><cell>13.2</cell></row><row><cell>1</cell><cell>17.6</cell><cell>6.0</cell><cell>8.8</cell><cell>14.7</cell><cell>9.9</cell><cell>11.6</cell><cell>13.1</cell><cell>13.5</cell><cell>13.1</cell></row><row><cell>2</cell><cell>17.9</cell><cell>6.1</cell><cell>9.0</cell><cell>14.5</cell><cell>9.8</cell><cell>11.5</cell><cell>13.2</cell><cell>13.6</cell><cell>13.2</cell></row><row><cell>3</cell><cell>17.6</cell><cell>5.9</cell><cell>8.8</cell><cell>14.4</cell><cell>9.7</cell><cell>11.4</cell><cell>13.0</cell><cell>13.3</cell><cell>13.0</cell></row><row><cell>4</cell><cell>17.6</cell><cell>5.9</cell><cell>8.8</cell><cell>14.5</cell><cell>9.8</cell><cell>11.5</cell><cell>13.1</cell><cell>13.4</cell><cell>13.0</cell></row><row><cell>5</cell><cell>17.4</cell><cell>5.9</cell><cell>8.7</cell><cell>14.4</cell><cell>9.7</cell><cell>11.5</cell><cell>13.1</cell><cell>13.5</cell><cell>13.1</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5" coords="16,306.15,421.49,238.12,120.87"><head></head><label></label><figDesc>9, 10, and 11, F1 scores of various techniques for top-5, 10, and 15 keyphrases are shown in the case of readerassigned, author-assigned, and combined gold standard keyphrases. Like the table, SR demonstrates the substandard performance. Although, PR outperforms SR, but it falls short in front of TR for a considerably larger margin. Again, MR and TF-IDF demonstrate comparable performance in case of all three top-N values. Although, YAKE performs better over other considered keyphrase extraction techniques, but our proposed technique overpowers all</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6" coords="16,51.02,560.50,493.23,131.11"><head>Table 6</head><label>6</label><figDesc>Performance of proposed technique for various μ values on set 2 dataset</figDesc><table coords="16,51.02,579.64,493.23,111.97"><row><cell>μ</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell></row><row><cell>0</cell><cell>21.3</cell><cell>7.6</cell><cell>11.1</cell><cell>17.7</cell><cell>12.6</cell><cell>14.6</cell><cell>14.9</cell><cell>15.8</cell><cell>15.3</cell></row><row><cell>1</cell><cell>21.3</cell><cell>7.6</cell><cell>11.1</cell><cell>17.8</cell><cell>12.6</cell><cell>14.6</cell><cell>15.3</cell><cell>16.2</cell><cell>15.6</cell></row><row><cell>2</cell><cell>21.3</cell><cell>7.6</cell><cell>11.1</cell><cell>17.8</cell><cell>12.6</cell><cell>14.6</cell><cell>15.3</cell><cell>16.1</cell><cell>15.6</cell></row><row><cell>3</cell><cell>21.5</cell><cell>7.7</cell><cell>11.2</cell><cell>17.7</cell><cell>12.5</cell><cell>14.5</cell><cell>15.1</cell><cell>15.9</cell><cell>15.4</cell></row><row><cell>4</cell><cell>21.7</cell><cell>7.8</cell><cell>11.4</cell><cell>17.9</cell><cell>12.7</cell><cell>14.7</cell><cell>15.0</cell><cell>15.9</cell><cell>15.3</cell></row><row><cell>5</cell><cell>21.3</cell><cell>7.6</cell><cell>11.2</cell><cell>17.8</cell><cell>12.6</cell><cell>14.6</cell><cell>14.7</cell><cell>15.6</cell><cell>15.0</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7" coords="17,51.02,59.98,493.27,153.83"><head>Table 7</head><label>7</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques for reader-assigned keyphrases on set 2 dataset</figDesc><table coords="17,51.02,89.13,493.25,124.67"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>9.4</cell><cell>4.0</cell><cell>5.5</cell><cell>7.8</cell><cell>6.6</cell><cell>7.1</cell><cell>6.6</cell><cell>8.4</cell><cell>7.3</cell></row><row><cell></cell><cell>PositionRank</cell><cell>3.8</cell><cell>1.6</cell><cell>2.3</cell><cell>4.4</cell><cell>3.8</cell><cell>4.0</cell><cell>3.9</cell><cell>5.1</cell><cell>4.4</cell></row><row><cell></cell><cell>SingleRank</cell><cell>1.9</cell><cell>0.8</cell><cell>1.2</cell><cell>1.8</cell><cell>1.5</cell><cell>1.6</cell><cell>1.7</cell><cell>2.2</cell><cell>1.9</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>11.3</cell><cell>4.8</cell><cell>6.7</cell><cell>9.2</cell><cell>7.8</cell><cell>8.4</cell><cell>8.0</cell><cell>10.3</cell><cell>8.9</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>11.1</cell><cell>4.7</cell><cell>6.6</cell><cell>7.4</cell><cell>6.4</cell><cell>6.8</cell><cell>6.9</cell><cell>8.9</cell><cell>7.5</cell></row><row><cell></cell><cell>YAKE</cell><cell>12.7</cell><cell>5.5</cell><cell>7.7</cell><cell>12.0</cell><cell>10.4</cell><cell>11.1</cell><cell>10.9</cell><cell>14.1</cell><cell>12.2</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>16.5</cell><cell>7.2</cell><cell>10.0</cell><cell>14.5</cell><cell>12.6</cell><cell>13.4</cell><cell>12.5</cell><cell>16.1</cell><cell>13.9</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8" coords="17,51.02,286.48,493.25,153.83"><head>Table 8</head><label>8</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques for author-assigned keyphrases on set 2 dataset</figDesc><table coords="17,51.02,315.64,493.24,124.67"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>6</cell><cell>7.2</cell><cell>6.3</cell><cell>3.9</cell><cell>9.5</cell><cell>5.4</cell><cell>3.1</cell><cell>11.2</cell><cell>4.7</cell></row><row><cell></cell><cell>PositionRank</cell><cell>1.2</cell><cell>1.8</cell><cell>1.3</cell><cell>1.5</cell><cell>3.9</cell><cell>2.0</cell><cell>1.5</cell><cell>6.8</cell><cell>2.4</cell></row><row><cell></cell><cell>SingleRank</cell><cell>0.4</cell><cell>0.4</cell><cell>0.3</cell><cell>0.3</cell><cell>0.7</cell><cell>0.4</cell><cell>0.2</cell><cell>1.2</cell><cell>0.41</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>6.4</cell><cell>8.1</cell><cell>6.9</cell><cell>4.4</cell><cell>11.0</cell><cell>6.1</cell><cell>3.7</cell><cell>13.7</cell><cell>5.7</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>6.4</cell><cell>7.9</cell><cell>6.8</cell><cell>4.9</cell><cell>11.9</cell><cell>6.8</cell><cell>4.3</cell><cell>16.4</cell><cell>6.7</cell></row><row><cell></cell><cell>YAKE</cell><cell>7.8</cell><cell>10.3</cell><cell>8.6</cell><cell>6.8</cell><cell>18.6</cell><cell>9.8</cell><cell>6.2</cell><cell>2.4</cell><cell>9.8</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>8.8</cell><cell>11.6</cell><cell>9.7</cell><cell>7.3</cell><cell>19.8</cell><cell>10.4</cell><cell>6.1</cell><cell>24.2</cell><cell>9.6</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9" coords="17,51.02,512.98,493.25,143.83"><head>Table 9</head><label>9</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques for combined keyphrases on set 2 dataset</figDesc><table coords="17,51.02,532.14,493.25,124.67"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>12.3</cell><cell>4.2</cell><cell>6.3</cell><cell>9.4</cell><cell>6.5</cell><cell>7.6</cell><cell>8</cell><cell>8.3</cell><cell>8.1</cell></row><row><cell></cell><cell>PositionRank</cell><cell>4.2</cell><cell>1.4</cell><cell>2.1</cell><cell>5.1</cell><cell>3.6</cell><cell>4.1</cell><cell>4.6</cell><cell>4.9</cell><cell>4.7</cell></row><row><cell></cell><cell>SingleRank</cell><cell>2.2</cell><cell>0.7</cell><cell>1.1</cell><cell>1.9</cell><cell>1.2</cell><cell>1.5</cell><cell>1.8</cell><cell>1.8</cell><cell>1.8</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>13.9</cell><cell>4.8</cell><cell>7.1</cell><cell>11.1</cell><cell>7.8</cell><cell>9.1</cell><cell>9.5</cell><cell>10.1</cell><cell>9.7</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>14.3</cell><cell>5.1</cell><cell>7.5</cell><cell>10.3</cell><cell>7.4</cell><cell>8.6</cell><cell>9.4</cell><cell>10.1</cell><cell>9.6</cell></row><row><cell></cell><cell>YAKE</cell><cell>16.9</cell><cell>6.0</cell><cell>8.83</cell><cell>14.9</cell><cell>10.6</cell><cell>12.3</cell><cell>13.5</cell><cell>14.3</cell><cell>13.8</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>21.3</cell><cell>7.6</cell><cell>11.1</cell><cell>17.8</cell><cell>12.6</cell><cell>14.6</cell><cell>15.3</cell><cell>16.1</cell><cell>15.6</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10" coords="18,51.02,59.98,493.26,153.83"><head>Table 10</head><label>10</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques for reader assigned keyphrases on set 1 dataset</figDesc><table coords="18,51.02,89.13,493.25,124.67"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>8.0</cell><cell>3.1</cell><cell>4.5</cell><cell>6.3</cell><cell>5.0</cell><cell>5.5</cell><cell>5.4</cell><cell>6.5</cell><cell>5.8</cell></row><row><cell></cell><cell>PositionRank</cell><cell>3.6</cell><cell>1.4</cell><cell>2.0</cell><cell>3.2</cell><cell>2.6</cell><cell>2.9</cell><cell>2.9</cell><cell>3.6</cell><cell>3.2</cell></row><row><cell></cell><cell>SingleRank</cell><cell>1.5</cell><cell>0.58</cell><cell>0.84</cell><cell>0.97</cell><cell>0.77</cell><cell>0.85</cell><cell>1.2</cell><cell>1.4</cell><cell>1.3</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>8.8</cell><cell>3.5</cell><cell>5.0</cell><cell>7.5</cell><cell>6.0</cell><cell>6.6</cell><cell>6.3</cell><cell>7.7</cell><cell>6.8</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>7.5</cell><cell>3.1</cell><cell>4.4</cell><cell>5.9</cell><cell>4.9</cell><cell>5.3</cell><cell>4.7</cell><cell>5.8</cell><cell>5.2</cell></row><row><cell></cell><cell>YAKE</cell><cell>7.4</cell><cell>3.0</cell><cell>4.2</cell><cell>7.0</cell><cell>5.6</cell><cell>6.1</cell><cell>6.7</cell><cell>8.1</cell><cell>7.2</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>14.0</cell><cell>5.7</cell><cell>8.0</cell><cell>11.0</cell><cell>9.0</cell><cell>9.8</cell><cell>10.1</cell><cell>12.7</cell><cell>11.1</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_11" coords="18,51.02,282.49,493.25,153.84"><head>Table 11</head><label>11</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques for author assigned keyphrases on set 1 dataset</figDesc><table coords="18,51.02,311.65,493.24,124.68"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>3.4</cell><cell>4.7</cell><cell>3.9</cell><cell>2.7</cell><cell>7.6</cell><cell>3.8</cell><cell>2.2</cell><cell>9.4</cell><cell>3.5</cell></row><row><cell></cell><cell>PositionRank</cell><cell>1.8</cell><cell>2.4</cell><cell>2.0</cell><cell>1.7</cell><cell>5.0</cell><cell>2.5</cell><cell>1.3</cell><cell>5.8</cell><cell>2.2</cell></row><row><cell></cell><cell>SingleRank</cell><cell>0.4</cell><cell>0.6</cell><cell>0.4</cell><cell>0.6</cell><cell>1.8</cell><cell>0.9</cell><cell>0.6</cell><cell>2.6</cell><cell>1.0</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>4.4</cell><cell>6.2</cell><cell>5.0</cell><cell>3.4</cell><cell>9.8</cell><cell>5.0</cell><cell>3.0</cell><cell>12.7</cell><cell>4.7</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>4.2</cell><cell>5.9</cell><cell>4.6</cell><cell>3.1</cell><cell>8.0</cell><cell>4.3</cell><cell>2.6</cell><cell>10.0</cell><cell>4.0</cell></row><row><cell></cell><cell>YAKE</cell><cell>5.4</cell><cell>7.2</cell><cell>6.0</cell><cell>4.8</cell><cell>12.8</cell><cell>6.8</cell><cell>4.5</cell><cell>17.9</cell><cell>7.1</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>8.4</cell><cell>11.3</cell><cell>9.4</cell><cell>6.7</cell><cell>18.1</cell><cell>9.6</cell><cell>6.1</cell><cell>24.4</cell><cell>9.6</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_12" coords="18,51.02,505.01,493.25,153.84"><head>Table 12</head><label>12</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques for combined keyphrases on set 1 dataset</figDesc><table coords="18,51.02,534.17,493.24,124.68"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell><cell>P</cell><cell>R</cell><cell>F1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>9.5</cell><cell>3.0</cell><cell>4.5</cell><cell>7.5</cell><cell>4.8</cell><cell>5.8</cell><cell>6.5</cell><cell>6.3</cell><cell>6.3</cell></row><row><cell></cell><cell>PositionRank</cell><cell>4.8</cell><cell>1.5</cell><cell>2.3</cell><cell>4.4</cell><cell>2.9</cell><cell>3.4</cell><cell>3.8</cell><cell>3.8</cell><cell>3.8</cell></row><row><cell></cell><cell>SingleRank</cell><cell>1.6</cell><cell>0.5</cell><cell>0.7</cell><cell>1.3</cell><cell>0.9</cell><cell>1.0</cell><cell>1.7</cell><cell>1.6</cell><cell>1.6</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>11.2</cell><cell>3.6</cell><cell>5.4</cell><cell>9.3</cell><cell>6.1</cell><cell>7.3</cell><cell>8.1</cell><cell>7.9</cell><cell>7.9</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>10.1</cell><cell>3.4</cell><cell>5.0</cell><cell>8.1</cell><cell>5.4</cell><cell>6.4</cell><cell>6.4</cell><cell>6.4</cell><cell>6.3</cell></row><row><cell></cell><cell>YAKE</cell><cell>10.8</cell><cell>3.5</cell><cell>5.3</cell><cell>10.0</cell><cell>6.6</cell><cell>7.9</cell><cell>9.3</cell><cell>9.2</cell><cell>9.1</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>17.9</cell><cell>6.1</cell><cell>9.0</cell><cell>14.5</cell><cell>9.8</cell><cell>11.5</cell><cell>13.2</cell><cell>13.6</cell><cell>13.2</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13" coords="20,51.02,59.98,493.24,310.61"><head>Table 13</head><label>13</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques on Thesis100 dataset and therefore, ranks only most probable keyphrases. On the other hand, in the case of YAKE, several inferior keyphrases exhibit similar statistical behavior like top keyphrases, and therefore, perform poorly. Again, although being a statistical-based approach, TF-IDF fails to exhibit comparative performance to YAKE. It is because the former one employs only two factors, namely TF and IDF, whereas, the latter consider multiple relevant features including casing, word position, frequency, and relatedness to context for ranking the keyphrases.</figDesc><table coords="20,51.02,79.13,493.24,124.67"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>5.8</cell><cell>4.1</cell><cell>4.7</cell><cell>3.9</cell><cell>5.6</cell><cell>4.5</cell><cell>2.8</cell><cell>6.1</cell><cell>3.8</cell></row><row><cell></cell><cell>PositionRank</cell><cell>0.6</cell><cell>0.3</cell><cell>0.4</cell><cell>0.5</cell><cell>0.6</cell><cell>0.5</cell><cell>0.5</cell><cell>1.0</cell><cell>0.7</cell></row><row><cell></cell><cell>SingleRank</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.2</cell><cell>0.2</cell><cell>0.2</cell><cell>0.2</cell><cell>0.3</cell><cell>0.2</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>6.2</cell><cell>4.6</cell><cell>5.2</cell><cell>4.2</cell><cell>6.1</cell><cell>4.9</cell><cell>3.0</cell><cell>6.6</cell><cell>4.0</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>1.4</cell><cell>1.3</cell><cell>1.2</cell><cell>0.9</cell><cell>1.6</cell><cell>1.1</cell><cell>0.7</cell><cell>2.0</cell><cell>1.0</cell></row><row><cell></cell><cell>YAKE</cell><cell>7.4</cell><cell>5.2</cell><cell>6.0</cell><cell>4.9</cell><cell>7.3</cell><cell>5.8</cell><cell>3.8</cell><cell>8.2</cell><cell>5.1</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>9.9</cell><cell>7.6</cell><cell>8.3</cell><cell>7.0</cell><cell>10.5</cell><cell>8.1</cell><cell>5.5</cell><cell>12.6</cell><cell>7.3</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_14" coords="20,51.02,527.86,493.25,143.83"><head>Table 14</head><label>14</label><figDesc>Performance of different unsupervised machine learning-based keyphrase extraction techniques on German Research Article dataset</figDesc><table coords="20,51.02,547.02,493.25,124.67"><row><cell>Approach</cell><cell>Technique</cell><cell>Top 5</cell><cell></cell><cell></cell><cell>Top 10</cell><cell></cell><cell></cell><cell>Top 15</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell><cell>P</cell><cell>R</cell><cell>F 1</cell></row><row><cell>Graph-based</cell><cell>TopicRank</cell><cell>6.0</cell><cell>6.5</cell><cell>6.2</cell><cell>5.0</cell><cell>9.5</cell><cell>6.4</cell><cell>3.9</cell><cell>11.5</cell><cell>5.8</cell></row><row><cell></cell><cell>PositionRank</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell></row><row><cell></cell><cell>SingleRank</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell></row><row><cell></cell><cell>MultipartiteRank</cell><cell>8.0</cell><cell>9.0</cell><cell>8.5</cell><cell>6.0</cell><cell>12.0</cell><cell>7.8</cell><cell>6.0</cell><cell>18.0</cell><cell>8.9</cell></row><row><cell>Statistical-based</cell><cell>TF-IDF</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell><cell>0.0</cell></row><row><cell></cell><cell>YAKE</cell><cell>8.0</cell><cell>9.0</cell><cell>8.4</cell><cell>4.0</cell><cell>9.0</cell><cell>5.5</cell><cell>2.6</cell><cell>9.0</cell><cell>4.1</cell></row><row><cell>Tree-based (proposed)</cell><cell>TeKET</cell><cell>8.8</cell><cell>9.4</cell><cell>9.1</cell><cell>5.5</cell><cell>11.6</cell><cell>7.8</cell><cell>4.4</cell><cell>13.8</cell><cell>6.7</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Cogn Comput (2020) 12:811-833</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>The authors would like to thank Prof. Min-Yen Kan from the National University of Singapore for providing the dataset.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Author Contributions</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Compliance with Ethical Standards</head><p>Conflict of Interests The authors declare that they have no conflict of interest.</p><p>Ethical Approval This article does not contain any studies with human participants or animals.</p><p>Informed Consent As this article does not contain any studies with human participants or animals, the informed consent is not applicable.</p><p>Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http:// creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct coords="21,320.75,389.78,223.50,7.47;21,320.75,399.78,223.52,7.47;21,320.75,409.78,220.99,7.47" xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Automated web usage data mining and recommendation system using K-Nearest Neighbor (KNN) classification method</title>
+		<author>
+			<persName coords=""><forename type="first">D</forename><forename type="middle">A</forename><surname>Adeniyi</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">Z</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">Y</forename><surname>Yongquan</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.aci.2014.10.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Computing and Informatics</title>
+		<title level="j" type="abbrev">Applied Computing and Informatics</title>
+		<idno type="ISSN">2210-8327</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="90" to="108" />
+			<date type="published" when="2016-01">2016</date>
+			<publisher>Emerald</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,419.78,223.51,7.47;21,320.75,429.78,223.51,7.47;21,320.75,439.78,14.87,7.47" xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Phase-based information retrieval</title>
+		<author>
+			<persName coords=""><forename type="first">A</forename><forename type="middle">T</forename><surname>Arampatzis</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">T</forename><surname>Tsoris</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">Cha</forename><forename type="middle">H A</forename><surname>Koster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Th.</forename><forename type="middle">P</forename><surname>Van Der Weide</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0306-4573(98)00030-2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Processing &amp; Management</title>
+		<title level="j" type="abbrev">Information Processing &amp; Management</title>
+		<idno type="ISSN">0306-4573</idno>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="693" to="707" />
+			<date type="published" when="1998-11">1998</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,449.78,223.52,7.47;21,320.75,459.78,223.50,7.47;21,320.75,469.78,128.45,7.47" xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Simple Unsupervised Keyphrase Extraction using Sentence Embeddings</title>
+		<author>
+			<persName><forename type="first">Kamil</forename><surname>Bennani-Smires</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudiu</forename><surname>Musat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreea</forename><surname>Hossmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Baeriswyl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Jaggi</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/k18-1022</idno>
+		<idno>arXiv:180104470</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 22nd Conference on Computational Natural Language Learning</title>
+				<meeting>the 22nd Conference on Computational Natural Language Learning</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,479.78,223.49,7.47;21,320.75,489.78,82.76,7.47" xml:id="b3">
+	<analytic>
+		<title level="a" type="main">NLTK</title>
+		<author>
+			<persName><forename type="first">Steven</forename><surname>Bird</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edward</forename><surname>Loper</surname></persName>
+		</author>
+		<idno type="DOI">10.3115/1219044.1219075</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the ACL 2004 on Interactive poster and demonstration sessions -</title>
+				<meeting>the ACL 2004 on Interactive poster and demonstration sessions</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="214" to="217" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,499.78,223.50,7.47;21,320.75,509.78,145.43,7.47" xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Reducing Over-generation Errors for Automatic Keyphrase Extraction using Integer Linear Programming</title>
+		<author>
+			<persName coords=""><forename type="first">Florian</forename><surname>Boudin</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/w15-3605</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the ACL 2015 Workshop on Novel Computational Approaches to Keyphrase Extraction</title>
+				<meeting>the ACL 2015 Workshop on Novel Computational Approaches to Keyphrase Extraction</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="69" to="73" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,519.78,223.54,7.47;21,320.75,529.79,223.49,7.47;21,320.75,539.79,40.37,7.47" xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Unsupervised Keyphrase Extraction with Multipartite Graphs</title>
+		<author>
+			<persName coords=""><forename type="first">Florian</forename><surname>Boudin</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/n18-2105</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers)</title>
+				<meeting>the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers)</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="667" to="672" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,549.79,223.48,7.47;21,320.75,559.78,223.51,7.47;21,320.75,569.78,40.37,7.47" xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Topicrank: Graph-based topic ranking for keyphrase extraction</title>
+		<author>
+			<persName coords=""><forename type="first">A</forename><surname>Bougouin</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">F</forename><surname>Boudin</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">B</forename><surname>Daille</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc IJCNLP</title>
+		<imprint>
+			<biblScope unit="page" from="543" to="551" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,579.78,223.51,7.47;21,320.75,589.78,220.74,7.47" xml:id="b7">
+	<analytic>
+		<title level="a" type="main">The anatomy of a large-scale hypertextual Web search engine</title>
+		<author>
+			<persName><forename type="first">Sergey</forename><surname>Brin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lawrence</forename><surname>Page</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0169-7552(98)00110-x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Networks and ISDN Systems</title>
+		<title level="j" type="abbrev">Computer Networks and ISDN Systems</title>
+		<idno type="ISSN">0169-7552</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">1-7</biblScope>
+			<biblScope unit="page" from="107" to="117" />
+			<date type="published" when="1998-04">1998</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,599.78,223.50,7.47;21,320.75,609.78,144.04,7.47" xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Organizing Knowledge</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">Seely</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Duguid</surname></persName>
+		</author>
+		<idno type="DOI">10.2307/41165945</idno>
+	</analytic>
+	<monogr>
+		<title level="j">California Management Review</title>
+		<title level="j" type="abbrev">California Management Review</title>
+		<idno type="ISSN">0008-1256</idno>
+		<idno type="ISSNe">2162-8564</idno>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="90" to="111" />
+			<date type="published" when="1998-04">1998</date>
+			<publisher>SAGE Publications</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,619.79,223.51,7.47;21,320.75,629.79,223.53,7.47;21,320.75,639.79,217.93,7.47" xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A Text Feature Based Automatic Keyword Extraction Method for Single Documents</title>
+		<author>
+			<persName><forename type="first">Ricardo</forename><surname>Campos</surname></persName>
+			<idno type="ORCID">0000-0002-8767-8126</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Vítor</forename><surname>Mangaravite</surname></persName>
+			<idno type="ORCID">0000-0001-9824-5484</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Arian</forename><surname>Pasquali</surname></persName>
+			<idno type="ORCID">0000-0002-3487-9397</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Alípio</forename><forename type="middle">Mário</forename><surname>Jorge</surname></persName>
+			<idno type="ORCID">0000-0002-5475-1382</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Célia</forename><surname>Nunes</surname></persName>
+			<idno type="ORCID">0000-0003-0167-4851</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Jatowt</surname></persName>
+			<idno type="ORCID">0000-0001-7235-0665</idno>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-76941-7_63</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="684" to="691" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,649.79,223.51,7.47;21,320.75,659.79,223.52,7.47;21,320.75,669.79,149.07,7.47" xml:id="b10">
+	<analytic>
+		<title level="a" type="main">YAKE! Collection-Independent Automatic Keyword Extractor</title>
+		<author>
+			<persName><forename type="first">Ricardo</forename><surname>Campos</surname></persName>
+			<idno type="ORCID">0000-0002-8767-8126</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Vítor</forename><surname>Mangaravite</surname></persName>
+			<idno type="ORCID">0000-0001-9824-5484</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Arian</forename><surname>Pasquali</surname></persName>
+			<idno type="ORCID">0000-0002-3487-9397</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Alípio</forename><forename type="middle">Mário</forename><surname>Jorge</surname></persName>
+			<idno type="ORCID">0000-0002-5475-1382</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Célia</forename><surname>Nunes</surname></persName>
+			<idno type="ORCID">0000-0003-0167-4851</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Jatowt</surname></persName>
+			<idno type="ORCID">0000-0001-7235-0665</idno>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-76941-7_80</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="806" to="810" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,679.79,223.51,7.47;21,320.75,689.78,125.53,7.47" xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Computationally private information retrieval (extended abstract)</title>
+		<author>
+			<persName><forename type="first">Benny</forename><surname>Chor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Niv</forename><surname>Gilboa</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/258533.258609</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the twenty-ninth annual ACM symposium on Theory of computing - STOC &apos;97</title>
+				<meeting>the twenty-ninth annual ACM symposium on Theory of computing - STOC &apos;97<address><addrLine>Princeton</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="21,320.75,699.78,223.52,7.47;21,320.75,709.79,83.34,7.47" xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Natural language processing</title>
+		<author>
+			<persName coords=""><forename type="first">Gobinda</forename><forename type="middle">G</forename><surname>Chowdhury</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/aris.1440370103</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Annual Review of Information Science and Technology</title>
+		<title level="j" type="abbrev">Ann. Rev. Info. Sci. Tech.</title>
+		<idno type="ISSN">0066-4200</idno>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="51" to="89" />
+			<date type="published" when="2003">2003</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,61.11,223.50,7.47;22,65.64,71.11,223.53,7.47;22,65.64,81.11,90.17,7.47" xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Google news personalization</title>
+		<author>
+			<persName><forename type="first">Abhinandan</forename><forename type="middle">S</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mayur</forename><surname>Datar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ashutosh</forename><surname>Garg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shyam</forename><surname>Rajaram</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1242572.1242610</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th international conference on World Wide Web - WWW &apos;07</title>
+				<meeting>the 16th international conference on World Wide Web - WWW &apos;07</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="271" to="280" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,91.11,223.49,7.47;22,65.64,101.11,223.49,7.47;22,65.64,111.11,223.52,7.47;22,65.64,121.11,67.73,7.47" xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Multilingual Sentiment Analysis: State of the Art and Independent Comparison of Techniques</title>
+		<author>
+			<persName><forename type="first">Kia</forename><surname>Dashtipour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Soujanya</forename><surname>Poria</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amir</forename><surname>Hussain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Erik</forename><surname>Cambria</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmad</forename><forename type="middle">Y A</forename><surname>Hawalah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Gelbukh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiang</forename><surname>Zhou</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12559-016-9415-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cognitive Computation</title>
+		<title level="j" type="abbrev">Cogn Comput</title>
+		<idno type="ISSN">1866-9956</idno>
+		<idno type="ISSNe">1866-9964</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="757" to="771" />
+			<date type="published" when="2016-06-01">2016</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,131.11,223.51,7.47;22,65.64,141.11,223.30,7.47;22,65.64,151.11,59.59,7.47" xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Automatic Keyphrase Extraction from Russian-Language Scholarly Papers in Computational Linguistics</title>
+		<author>
+			<persName><forename type="first">Yves</forename><surname>Wienecke</surname></persName>
+		</author>
+		<idno type="DOI">10.15760/honors.957</idno>
+		<ptr target="http://bdewilde.github.io/blog/2014/09/23/intro-to-automatic-keyphrase-extraction/.2014" />
+		<imprint>
+			<date>null</date>
+			<publisher>Portland State University Library</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,161.11,223.50,7.47;22,65.64,171.11,220.02,7.47" xml:id="b16">
+	<analytic>
+		<title level="a" type="main">KP-Miner: A keyphrase extraction system for English and Arabic documents</title>
+		<author>
+			<persName><forename type="first">Samhaa</forename><forename type="middle">R</forename><surname>El-Beltagy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Rafea</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.is.2008.05.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Systems</title>
+		<title level="j" type="abbrev">Information Systems</title>
+		<idno type="ISSN">0306-4379</idno>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="132" to="144" />
+			<date type="published" when="2009-03">2009</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,181.11,223.46,7.47;22,65.64,191.11,125.85,7.47" xml:id="b17">
+	<analytic>
+		<title level="a" type="main">KP-Miner: A keyphrase extraction system for English and Arabic documents</title>
+		<author>
+			<persName><forename type="first">Samhaa</forename><forename type="middle">R</forename><surname>El-Beltagy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Rafea</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.is.2008.05.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Systems</title>
+		<title level="j" type="abbrev">Information Systems</title>
+		<idno type="ISSN">0306-4379</idno>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="132" to="144" />
+			<date type="published" when="2010">2010</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,201.11,223.49,7.47;22,65.64,211.11,223.51,7.47;22,65.64,221.11,70.11,7.47" xml:id="b18">
+	<analytic>
+		<title level="a" type="main">PositionRank: An Unsupervised Approach to Keyphrase Extraction from Scholarly Documents</title>
+		<author>
+			<persName><forename type="first">Corina</forename><surname>Florescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cornelia</forename><surname>Caragea</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/p17-1102</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</title>
+				<meeting>the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="1105" to="1115" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,231.11,223.50,7.47;22,65.64,241.11,223.52,7.47;22,65.64,251.11,143.50,7.47" xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Empirical analysis and classification of database errors in Scopus and Web of Science</title>
+		<author>
+			<persName><forename type="first">Fiorenzo</forename><surname>Franceschini</surname></persName>
+			<idno type="ORCID">0000-0001-7131-4419</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Domenico</forename><surname>Maisano</surname></persName>
+			<idno type="ORCID">0000-0002-8154-4469</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Mastrogiacomo</surname></persName>
+			<idno type="ORCID">0000-0002-8454-5918</idno>
+		</author>
+		<idno type="DOI">10.1016/j.joi.2016.07.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Informetrics</title>
+		<title level="j" type="abbrev">Journal of Informetrics</title>
+		<idno type="ISSN">1751-1577</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="933" to="953" />
+			<date type="published" when="2016-11">2016</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,261.11,223.49,7.47;22,65.64,271.11,223.52,7.47;22,65.64,281.12,40.36,7.47" xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Domain-specific keyphrase extraction</title>
+		<author>
+			<persName coords=""><forename type="first">E</forename><surname>Frank</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">G</forename><forename type="middle">W</forename><surname>Paynter</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">I</forename><forename type="middle">H</forename><surname>Witten</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">C</forename><surname>Gutwin</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">C</forename><forename type="middle">G</forename><surname>Nevill-Manning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IJCAI</title>
+				<meeting>IJCAI</meeting>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<biblScope unit="page" from="668" to="673" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,291.12,223.50,7.47;22,65.64,301.12,154.83,7.47" xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Machine learning for information extraction in informal domains</title>
+		<author>
+			<persName coords=""><forename type="first">Dayne</forename><surname>Freitag</surname></persName>
+		</author>
+		<idno type="DOI">10.1023/a:1007601113994</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Machine Learning</title>
+		<idno type="ISSN">0885-6125</idno>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">2/3</biblScope>
+			<biblScope unit="page" from="169" to="202" />
+			<date type="published" when="2000">2000</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,311.11,223.48,7.47;22,65.64,321.11,223.51,7.47;22,65.64,331.11,94.79,7.47" xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Natural language processing: python and NLTK</title>
+		<author>
+			<persName coords=""><forename type="first">N</forename><surname>Hardeniya</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">J</forename><surname>Perkins</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">D</forename><surname>Chopra</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">N</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">I</forename><surname>Mathur</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<publisher>Packt Publishing Ltd</publisher>
+			<pubPlace>Birmingham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,341.11,223.53,7.47;22,65.64,351.11,223.52,7.47;22,65.64,361.11,148.98,7.47" xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Processing Spatial-Keyword (SK) Queries in Geographic Information Retrieval (GIR) Systems</title>
+		<author>
+			<persName><forename type="first">Ramaswamy</forename><surname>Hariharan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bijit</forename><surname>Hore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chen</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sharad</forename><surname>Mehrotra</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ssdbm.2007.22</idno>
+	</analytic>
+	<monogr>
+		<title level="m">19th International Conference on Scientific and Statistical Database Management (SSDBM 2007)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2007-07">2007</date>
+			<biblScope unit="page" from="16" to="16" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,371.12,223.50,7.47;22,65.64,381.12,175.30,7.47" xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Automatic Keyphrase Extraction: A Survey of the State of the Art</title>
+		<author>
+			<persName><forename type="first">Kazi</forename><forename type="middle">Saidul</forename><surname>Hasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vincent</forename><surname>Ng</surname></persName>
+		</author>
+		<idno type="DOI">10.3115/v1/p14-1119</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</title>
+				<meeting>the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="1262" to="1273" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,391.12,223.49,7.47;22,65.64,401.12,150.56,7.47" xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Statistical keyword detection in literary corpora</title>
+		<author>
+			<persName coords=""><forename type="first">J</forename><forename type="middle">P</forename><surname>Herrera</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">P</forename><forename type="middle">A</forename><surname>Pury</surname></persName>
+		</author>
+		<idno type="DOI">10.1140/epjb/e2008-00206-x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The European Physical Journal B</title>
+		<title level="j" type="abbrev">Eur. Phys. J. B</title>
+		<idno type="ISSN">1434-6028</idno>
+		<idno type="ISSNe">1434-6036</idno>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="135" to="146" />
+			<date type="published" when="2008-05">2008</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,411.12,223.49,7.47;22,65.64,421.12,129.48,7.47" xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Quicksort</title>
+		<author>
+			<persName coords=""><forename type="first">Car</forename><surname>Hoare</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><surname>Quicksort</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/comjnl/5.1.10</idno>
+		<ptr target="https://doi.org/10.1093/comjnl/5.1.10" />
+	</analytic>
+	<monogr>
+		<title level="j">The Computer Journal</title>
+		<title level="j" type="abbrev">The Computer Journal</title>
+		<idno type="ISSN">0010-4620</idno>
+		<idno type="ISSNe">1460-2067</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="10" to="16" />
+			<date type="published" when="1962-01-01">1962</date>
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,431.12,223.51,7.47;22,65.64,441.12,159.75,7.47" xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Mining key phrase translations from web corpora</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ying</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephan</forename><surname>Vogel</surname></persName>
+		</author>
+		<idno type="DOI">10.3115/1220575.1220636</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the conference on Human Language Technology and Empirical Methods in Natural Language Processing - HLT &apos;05</title>
+				<meeting>the conference on Human Language Technology and Empirical Methods in Natural Language Processing - HLT &apos;05</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2005" />
+			<biblScope unit="page" from="483" to="490" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,451.11,223.51,7.47;22,65.64,461.12,201.40,7.47" xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Improved automatic keyword extraction given more linguistic knowledge</title>
+		<author>
+			<persName coords=""><forename type="first">Anette</forename><surname>Hulth</surname></persName>
+		</author>
+		<idno type="DOI">10.3115/1119355.1119383</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2003 conference on Empirical methods in natural language processing -</title>
+				<meeting>the 2003 conference on Empirical methods in natural language processing</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="216" to="223" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,471.12,223.49,7.47;22,65.64,481.12,223.49,7.47;22,65.64,491.12,113.79,7.47" xml:id="b29">
+	<analytic>
+		<title level="a" type="main">An Assessment of Online Semantic Annotators for the Keyword Extraction Task</title>
+		<author>
+			<persName><forename type="first">Ludovic</forename><surname>Jean-Louis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amal</forename><surname>Zouaq</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michel</forename><surname>Gagnon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Faezeh</forename><surname>Ensan</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-13560-1_44</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="548" to="560" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,501.12,223.51,7.47;22,65.64,511.12,166.66,7.47" xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Stemming and its effects on TFIDF ranking (poster session)</title>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Kantrowitz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Behrang</forename><surname>Mohit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vibhu</forename><surname>Mittal</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/345508.345650</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 23rd annual international ACM SIGIR conference on Research and development in information retrieval - SIGIR &apos;00</title>
+				<meeting>the 23rd annual international ACM SIGIR conference on Research and development in information retrieval - SIGIR &apos;00</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="page" from="357" to="359" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,521.12,223.51,7.47;22,65.64,531.12,223.49,7.47;22,65.64,541.12,223.52,7.47;22,65.64,551.13,14.87,7.47" xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Information Retrieval with Porter Stemmer: A New Version for English</title>
+		<author>
+			<persName><forename type="first">Wahiba</forename><forename type="middle">Ben Abdessalem</forename><surname>Karaa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nidhal</forename><surname>Gribâa</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-00951-3_24</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Intelligent Systems and Computing</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="243" to="254" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,561.13,223.48,7.47;22,65.64,571.12,223.53,7.47;22,65.64,581.12,107.91,7.47" xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Automatic keyphrase extraction from scientific articles</title>
+		<author>
+			<persName><forename type="first">Su</forename><forename type="middle">Nam</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olena</forename><surname>Medelyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Min-Yen</forename><surname>Kan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Timothy</forename><surname>Baldwin</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10579-012-9210-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Language Resources and Evaluation</title>
+		<title level="j" type="abbrev">Lang Resources &amp; Evaluation</title>
+		<idno type="ISSN">1574-020X</idno>
+		<idno type="ISSNe">1574-0218</idno>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="723" to="742" />
+			<date type="published" when="2012-12-18" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,590.63,223.52,7.47;22,65.64,600.63,223.50,7.47;22,65.64,610.63,71.98,7.47" xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Automatic keyphrase extraction from scientific articles</title>
+		<author>
+			<persName><forename type="first">Su</forename><forename type="middle">Nam</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olena</forename><surname>Medelyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Min-Yen</forename><surname>Kan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Timothy</forename><surname>Baldwin</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10579-012-9210-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Language Resources and Evaluation</title>
+		<title level="j" type="abbrev">Lang Resources &amp; Evaluation</title>
+		<idno type="ISSN">1574-020X</idno>
+		<idno type="ISSNe">1574-0218</idno>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="723" to="742" />
+			<date type="published" when="2013">2013</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,620.13,223.49,7.47;22,65.64,630.13,223.49,7.47" xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Machine learning for medical diagnosis: history, state of the art and perspective</title>
+		<author>
+			<persName coords=""><forename type="first">Igor</forename><surname>Kononenko</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0933-3657(01)00077-x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Artificial Intelligence in Medicine</title>
+		<title level="j" type="abbrev">Artificial Intelligence in Medicine</title>
+		<idno type="ISSN">0933-3657</idno>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="89" to="109" />
+			<date type="published" when="2001-08">2001</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,639.63,223.51,7.47;22,65.64,649.63,140.23,7.47" xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Web mining research</title>
+		<author>
+			<persName><forename type="first">Raymond</forename><surname>Kosala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hendrik</forename><surname>Blockeel</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/360402.360406</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGKDD Explorations Newsletter</title>
+		<title level="j" type="abbrev">SIGKDD Explor. Newsl.</title>
+		<idno type="ISSN">1931-0145</idno>
+		<idno type="ISSNe">1931-0153</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="15" />
+			<date type="published" when="2000-06">2000</date>
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,659.13,223.49,7.47;22,65.64,669.13,154.96,7.47" xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Social marketing. Strategies for changing public behavior</title>
+		<author>
+			<persName coords=""><forename type="first">P</forename><surname>Kotler</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">E</forename><forename type="middle">L</forename><surname>Roberto</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1989">1989</date>
+			<publisher>Free Press</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,678.63,223.49,7.47;22,65.64,688.63,83.10,7.47" xml:id="b37">
+	<monogr>
+		<title level="m" type="main">Regular expression howto</title>
+		<author>
+			<persName coords=""><forename type="first">A</forename><surname>Kuchling</surname></persName>
+		</author>
+		<ptr target="https://docs.python.org/3/howto/regex.html" />
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,65.64,698.63,223.50,7.47;22,65.64,708.64,206.91,7.47" xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Digital libraries and autonomous citation indexing</title>
+		<author>
+			<persName coords=""><forename type="first">S</forename><surname>Lawrence</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lee Giles</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">K</forename><surname>Bollacker</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/2.769447</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<title level="j" type="abbrev">Computer</title>
+		<idno type="ISSN">0018-9162</idno>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="67" to="71" />
+			<date type="published" when="1999-06">1999</date>
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,61.12,223.51,7.47;22,320.75,71.12,207.31,7.47" xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Graph-based keyword extraction for single-document summarization</title>
+		<author>
+			<persName><forename type="first">Marina</forename><surname>Litvak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Last</surname></persName>
+		</author>
+		<idno type="DOI">10.3115/1613172.1613178</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Workshop on Multi-source Multilingual Information Extraction and Summarization - MMIES &apos;08</title>
+				<meeting>the Workshop on Multi-source Multilingual Information Extraction and Summarization - MMIES &apos;08</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="17" to="24" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,81.12,223.50,7.47;22,320.75,91.13,192.16,7.47" xml:id="b40">
+	<analytic>
+		<title level="a" type="main">One-class document classification via Neural Networks</title>
+		<author>
+			<persName><forename type="first">Larry</forename><surname>Manevitz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Malik</forename><surname>Yousef</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2006.05.013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<title level="j" type="abbrev">Neurocomputing</title>
+		<idno type="ISSN">0925-2312</idno>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="issue">7-9</biblScope>
+			<biblScope unit="page" from="1466" to="1481" />
+			<date type="published" when="2001-12">2001. Dec</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,101.13,223.49,7.47;22,320.75,111.13,223.52,7.47;22,320.75,121.13,76.12,7.47" xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Text classification and Naive Bayes</title>
+		<author>
+			<persName coords=""><forename type="first">A</forename><surname>Mccallum</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">K</forename><surname>Nigam</surname></persName>
+		</author>
+		<idno type="DOI">10.1017/cbo9780511809071.014</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Introduction to Information Retrieval</title>
+				<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="page" from="234" to="265" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,131.13,223.49,7.47;22,320.75,141.13,223.50,7.47;22,320.75,151.13,40.37,7.47" xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Automatic keyphrase extraction: An overview of the state of the art</title>
+		<author>
+			<persName><forename type="first">Zakariae</forename><forename type="middle">Alami</forename><surname>Merrouni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bouchra</forename><surname>Frikh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brahim</forename><surname>Ouhbi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cist.2016.7805062</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 4th IEEE International Colloquium on Information Science and Technology (CiSt)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-10">2016</date>
+			<biblScope unit="page" from="306" to="313" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,161.12,223.50,7.47;22,320.75,171.12,223.53,7.47;22,320.75,181.12,161.01,7.47" xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Bringing order into text</title>
+		<author>
+			<persName coords=""><forename type="first">R</forename><surname>Mihalcea</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">P</forename><surname>Tarau</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><surname>Textrank</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2004 conference on empirical methods in natural language processing</title>
+				<meeting>the 2004 conference on empirical methods in natural language processing</meeting>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="404" to="411" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,191.13,223.51,7.47;22,320.75,201.13,223.52,7.47;22,320.75,211.13,142.82,7.47" xml:id="b44">
+	<analytic>
+		<title level="a" type="main">KeyGraph: automatic indexing by co-occurrence graph based on building construction metaphor</title>
+		<author>
+			<persName coords=""><forename type="first">Y</forename><surname>Ohsawa</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">N</forename><forename type="middle">E</forename><surname>Benson</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">M</forename><surname>Yachida</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/adl.1998.670375</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings IEEE International Forum on Research and Technology Advances in Digital Libraries -ADL&apos;98-</title>
+				<meeting>IEEE International Forum on Research and Technology Advances in Digital Libraries -ADL&apos;98</meeting>
+		<imprint>
+			<publisher>IEEE Comput. Soc</publisher>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="page" from="12" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,221.13,223.54,7.47;22,320.75,231.13,223.50,7.47;22,320.75,241.13,19.12,7.47" xml:id="b45">
+	<monogr>
+		<title level="m" type="main">PageRank Algorithm, 1998; Brin, Page</title>
+		<author>
+			<persName coords=""><forename type="first">L</forename><surname>Page</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">S</forename><surname>Brin</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">R</forename><surname>Motwani</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">T</forename><surname>Winograd</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/springerreference_57796</idno>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<publisher>Springer-Verlag</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,251.13,223.52,7.47;22,320.75,261.13,223.51,7.47;22,320.75,271.13,61.62,7.47" xml:id="b46">
+	<analytic>
+		<title level="a" type="main">A novel corpus-based stemming algorithm using co-occurrence statistics</title>
+		<author>
+			<persName><forename type="first">Jiaul</forename><forename type="middle">H</forename><surname>Paik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dipasree</forename><surname>Pal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Swapan</forename><forename type="middle">K</forename><surname>Parui</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2009916.2010031</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 34th international ACM SIGIR conference on Research and development in Information - SIGIR &apos;11</title>
+				<meeting>the 34th international ACM SIGIR conference on Research and development in Information - SIGIR &apos;11</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="863" to="872" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,281.13,223.53,7.47;22,320.75,291.13,223.47,7.47;22,320.75,301.13,151.72,7.47" xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Twitter Sentiment Analysis for Large-Scale Data: An Unsupervised Approach</title>
+		<author>
+			<persName><forename type="first">Rafeeque</forename><surname>Pandarachalil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Selvaraju</forename><surname>Sendhilkumar</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">G</forename><forename type="middle">S</forename><surname>Mahalakshmi</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12559-014-9310-z</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cognitive Computation</title>
+		<title level="j" type="abbrev">Cogn Comput</title>
+		<idno type="ISSN">1866-9956</idno>
+		<idno type="ISSNe">1866-9964</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="254" to="262" />
+			<date type="published" when="2015">2015</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,311.13,223.51,7.47;22,320.75,321.13,223.51,7.47;22,320.75,331.13,202.09,7.47" xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Automatic keyphrase extraction and ontology mining for content-based tag recommendation</title>
+		<author>
+			<persName><forename type="first">Nirmala</forename><surname>Pudota</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonina</forename><surname>Dattolo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrea</forename><surname>Baruzzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Felice</forename><surname>Ferrara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlo</forename><surname>Tasso</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/int.20448</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Intelligent Systems</title>
+		<title level="j" type="abbrev">Int. J. Intell. Syst.</title>
+		<idno type="ISSN">0884-8173</idno>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="1158" to="1186" />
+			<date type="published" when="2010-10-08">2010</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,341.13,223.50,7.47;22,320.75,351.11,218.74,7.50;22,320.75,361.10,43.67,7.47" xml:id="b49">
+	<monogr>
+		<title level="m" type="main">Automatic keyphrase extraction</title>
+		<author>
+			<persName coords=""><forename type="first">G</forename><surname>Rabby</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">S</forename><surname>Azad</surname></persName>
+		</author>
+		<ptr target="https://drive.google.com/drive/folders/1e2UrDtYqRAjAE5hso4oXobXDjuoVUW.2019" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,371.11,223.51,7.47;22,320.75,381.11,223.29,7.47" xml:id="b50">
+	<analytic>
+		<title level="a" type="main">TeKET: a Tree-Based Unsupervised Keyphrase Extraction Technique</title>
+		<author>
+			<persName><forename type="first">Gollam</forename><surname>Rabby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saiful</forename><surname>Azad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mufti</forename><surname>Mahmud</surname></persName>
+			<idno type="ORCID">0000-0002-2037-8348</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Kamal</forename><forename type="middle">Z</forename><surname>Zamli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammed</forename><forename type="middle">Mostafizur</forename><surname>Rahman</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12559-019-09706-3</idno>
+		<ptr target="https://github.com/corei5/TeKET/tree/master/" />
+	</analytic>
+	<monogr>
+		<title level="j">Cognitive Computation</title>
+		<title level="j" type="abbrev">Cogn Comput</title>
+		<idno type="ISSN">1866-9956</idno>
+		<idno type="ISSNe">1866-9964</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="811" to="833" />
+			<date type="published" when="2019">Data%20set/German%20Papers. 2019</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,391.11,223.51,7.47;22,320.75,401.11,223.50,7.47;22,320.75,411.11,138.37,7.47" xml:id="b51">
+	<analytic>
+		<title level="a" type="main">A Flexible Keyphrase Extraction Technique for Academic Literature</title>
+		<author>
+			<persName><forename type="first">Gollam</forename><surname>Rabby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saiful</forename><surname>Azad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">“</forename><surname>Mufti Mahmud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kamal</forename><forename type="middle">Z</forename><surname>Zamli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammed</forename><surname>Mostafizur Rahman</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2018.08.208</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<title level="j" type="abbrev">Procedia Computer Science</title>
+		<idno type="ISSN">1877-0509</idno>
+		<imprint>
+			<biblScope unit="volume">135</biblScope>
+			<biblScope unit="page" from="553" to="563" />
+			<date type="published" when="2018">2018</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,421.11,223.50,7.47;22,320.75,431.11,170.47,7.47" xml:id="b52">
+	<monogr>
+		<title level="m" type="main">Connectionist Approaches to Natural Language Processing</title>
+		<author>
+			<persName coords=""><forename type="first">R</forename><forename type="middle">G</forename><surname>Reilly</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">N</forename><surname>Sharkey</surname></persName>
+		</author>
+		<idno type="DOI">10.4324/9781315636863</idno>
+		<imprint>
+			<date type="published" when="2016-07-22">2016</date>
+			<publisher>Routledge</publisher>
+			<pubPlace>Abingdon: Routledge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,441.11,223.51,7.47;22,320.75,451.11,223.52,7.47;22,320.75,461.12,48.87,7.47" xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Introduction to Recommender Systems Handbook</title>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Ricci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lior</forename><surname>Rokach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bracha</forename><surname>Shapira</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-0-387-85820-3_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Recommender Systems Handbook</title>
+				<imprint>
+			<publisher>Springer US</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="1" to="35" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,471.11,223.52,7.47;22,320.75,481.11,209.66,7.47" xml:id="b54">
+	<monogr>
+		<title level="m" type="main">Organizing Knowledge</title>
+		<author>
+			<persName coords=""><forename type="first">Jennifer</forename><surname>Rowley</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">R</forename><surname>Hartley</surname></persName>
+		</author>
+		<idno type="DOI">10.4324/9781315247519</idno>
+		<imprint>
+			<date type="published" when="2017-05-15">2017</date>
+			<publisher>Routledge</publisher>
+			<pubPlace>Abingdon: Routledge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,491.11,223.53,7.47;22,320.75,501.11,186.89,7.47" xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Term-weighting approaches in automatic text retrieval</title>
+		<author>
+			<persName><forename type="first">Gerard</forename><surname>Salton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Buckley</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0306-4573(88)90021-0</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Processing &amp; Management</title>
+		<title level="j" type="abbrev">Information Processing &amp; Management</title>
+		<idno type="ISSN">0306-4573</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="513" to="523" />
+			<date type="published" when="1988-01">1988</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,511.11,223.50,7.47;22,320.75,521.11,223.50,7.47;22,320.75,531.11,71.98,7.47" xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Conducting content‐analysis based literature reviews in supply chain management</title>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Seuring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Gold</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/13598541211258609</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Supply Chain Management: An International Journal</title>
+		<idno type="ISSN">1359-8546</idno>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="544" to="555" />
+			<date type="published" when="2012-08-03">2012</date>
+			<publisher>Emerald</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,540.61,223.52,7.47;22,320.75,550.61,223.51,7.47;22,320.75,560.61,115.43,7.47" xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Keyword and Keyphrase Extraction Techniques: A Literature Review</title>
+		<author>
+			<persName><forename type="first">Sifatullah</forename><surname>Siddiqi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditi</forename><surname>Sharan</surname></persName>
+		</author>
+		<idno type="DOI">10.5120/19161-0607</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Computer Applications</title>
+		<title level="j" type="abbrev">IJCA</title>
+		<idno type="ISSNe">0975-8887</idno>
+		<imprint>
+			<biblScope unit="volume">109</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="18" to="23" />
+			<date type="published" when="2015-01-16">2015</date>
+			<publisher>Foundation of Computer Science</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,570.12,223.49,7.47;22,320.75,580.12,223.52,7.47;22,320.75,590.12,117.12,7.47" xml:id="b58">
+	<analytic>
+		<title level="a" type="main">A comparison of document clustering techniques</title>
+		<author>
+			<persName coords=""><forename type="first">M</forename><surname>Steinbach</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">G</forename><surname>Karypis</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">V</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">KDD Workshop on text mining</title>
+		<imprint>
+			<biblScope unit="page" from="525" to="526" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,599.62,223.51,7.47;22,320.75,609.62,223.51,7.47;22,320.75,619.62,40.37,7.47" xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Topical Word Importance for Fast Keyphrase Extraction</title>
+		<author>
+			<persName><forename type="first">Lucas</forename><surname>Sterckx</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Demeester</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Johannes</forename><surname>Deleu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Develder</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2740908.2742730</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 24th International Conference on World Wide Web</title>
+				<meeting>the 24th International Conference on World Wide Web</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2015-05-18">2015</date>
+			<biblScope unit="page" from="121" to="122" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,629.12,223.51,7.47;22,320.75,639.12,223.52,7.47;22,320.75,649.12,161.04,7.47" xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Creation and evaluation of large keyphrase extraction collections with multiple opinions</title>
+		<author>
+			<persName><forename type="first">Lucas</forename><surname>Sterckx</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Demeester</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Johannes</forename><surname>Deleu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Develder</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10579-017-9395-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Language Resources and Evaluation</title>
+		<title level="j" type="abbrev">Lang Resources &amp; Evaluation</title>
+		<idno type="ISSN">1574-020X</idno>
+		<idno type="ISSNe">1574-0218</idno>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="503" to="532" />
+			<date type="published" when="2018">2018</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="22,320.75,658.63,223.49,7.47;22,320.75,667.68,220.60,8.42;22,320.75,678.62,19.12,7.47" xml:id="b61">
+	<analytic>
+		<title level="a" type="main">&quot;Towards higher relevance and serendipity in scholarly paper recommendation&quot; by Kazunari Sugiyama and Min-Yen Kan with Martin Vesely as coordinator</title>
+		<author>
+			<persName><forename type="first">Kazunari</forename><surname>Sugiyama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Min-Yen</forename><surname>Kan</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2719943.2719947</idno>
+		<ptr target="http://www.comp.nus.edu.sg/∼sugiyama/SchPaperRecData.html" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGWEB Newsletter</title>
+		<title level="j" type="abbrev">SIGWEB Newsl.</title>
+		<idno type="ISSN">1931-1745</idno>
+		<idno type="ISSNe">1931-1435</idno>
+		<imprint>
+			<biblScope unit="issue">Winter</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2018">2018</date>
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+	<note>Scholarly paper recommendation datasets</note>
+</biblStruct>
+
+<biblStruct coords="22,320.75,688.61,223.52,7.47;22,320.75,698.61,223.50,7.47;22,320.75,708.62,31.87,7.47" xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Automatic Keyword Extraction for Text Summarization in e-Newspapers</title>
+		<author>
+			<persName><forename type="first">Justine</forename><forename type="middle">Raju</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Santosh</forename><forename type="middle">Kumar</forename><surname>Bharti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Korra</forename><forename type="middle">Sathya</forename><surname>Babu</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2980258.2980442</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Informatics and Analytics</title>
+				<meeting>the International Conference on Informatics and Analytics</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2016-08-25">2016</date>
+			<biblScope unit="page" from="86" to="92" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,61.11,223.48,7.47;23,65.64,71.11,223.51,7.47;23,65.64,81.11,48.86,7.47" xml:id="b63">
+	<analytic>
+		<title level="a" type="main">A Graph Degeneracy-based Approach to Keyword Extraction</title>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Tixier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fragkiskos</forename><surname>Malliaros</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michalis</forename><surname>Vazirgiannis</surname></persName>
+		</author>
+		<idno type="DOI">10.18653/v1/d16-1191</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing</title>
+				<meeting>the 2016 Conference on Empirical Methods in Natural Language Processing</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="1860" to="1870" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,91.11,223.51,7.47;23,65.64,101.11,141.66,7.47" xml:id="b64">
+	<analytic>
+		<title level="a" type="main">A language model approach to keyphrase extraction</title>
+		<author>
+			<persName><forename type="first">Takashi</forename><surname>Tomokiyo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Hurst</surname></persName>
+		</author>
+		<idno type="DOI">10.3115/1119282.1119287</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the ACL 2003 workshop on Multiword expressions analysis, acquisition and treatment -</title>
+				<meeting>the ACL 2003 workshop on Multiword expressions analysis, acquisition and treatment</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="33" to="40" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,111.11,223.49,7.47;23,65.64,121.11,223.50,7.47;23,65.64,131.11,223.50,7.47;23,65.64,141.11,53.11,7.47" xml:id="b65">
+	<analytic>
+		<title level="a" type="main">An Empirical Evaluation on Semantic Search Performance of Keyword-Based and Semantic Search Engines: Google, Yahoo, Msn and Hakia</title>
+		<author>
+			<persName><forename type="first">Duygu</forename><surname>Tümer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammad</forename><forename type="middle">Ahmed</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yiltan</forename><surname>Bitirim</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icimp.2009.16</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2009 Fourth International Conference on Internet Monitoring and Protection</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="51" to="55" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,151.11,223.50,7.47;23,65.64,161.11,223.51,7.47;23,65.64,171.11,61.61,7.47" xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Comparison of text mining techniques for service aspect extraction</title>
+		<author>
+			<persName coords=""><forename type="first">F</forename><surname>Vencovsky</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">B</forename><surname>Lucas</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">D</forename><surname>Mahr</surname></persName>
+		</author>
+		<author>
+			<persName coords=""><forename type="first">J</forename><surname>Lemmink</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc ECSM</title>
+		<imprint>
+			<biblScope unit="page" from="297" to="307" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,181.11,223.49,7.47;23,65.64,191.12,223.49,7.47;23,65.64,201.12,187.55,7.47" xml:id="b67">
+	<analytic>
+		<title level="a" type="main">A semi-automatic indexing system based on embedded information in HTML documents</title>
+		<author>
+			<persName><forename type="first">Mari</forename><surname>Vállez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rafael</forename><surname>Pedraza-Jiménez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lluís</forename><surname>Codina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saúl</forename><surname>Blanco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristòfol</forename><surname>Rovira</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/lht-12-2014-0114</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Library Hi Tech</title>
+		<idno type="ISSN">0737-8831</idno>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="195" to="210" />
+			<date type="published" when="2015-06-15">2015</date>
+			<publisher>Emerald</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,211.11,223.50,7.47;23,65.64,221.11,223.48,7.47;23,65.64,231.11,77.19,7.47" xml:id="b68">
+	<analytic>
+		<title level="a" type="main">Automatic Key Phrase Extraction</title>
+		<author>
+			<persName><forename type="first">Omar</forename><surname>Almutiry</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iceet53442.2021.9659724</idno>
+		<ptr target="https://github.com/LIAAD/KeywordExtractor-Datasets#theses" />
+	</analytic>
+	<monogr>
+		<title level="m">2021 International Conference on Engineering and Emerging Technologies (ICEET)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+		<respStmt>
+			<orgName>University of Waikato NZ</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,241.11,223.51,7.47;23,65.64,251.11,223.52,7.47;23,65.64,261.11,40.36,7.47" xml:id="b69">
+	<analytic>
+		<title level="a" type="main">CollabRank</title>
+		<author>
+			<persName><forename type="first">Xiaojun</forename><surname>Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianguo</forename><surname>Xiao</surname></persName>
+		</author>
+		<idno type="DOI">10.3115/1599081.1599203</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 22nd International Conference on Computational Linguistics - COLING &apos;08</title>
+				<meeting>the 22nd International Conference on Computational Linguistics - COLING &apos;08</meeting>
+		<imprint>
+			<publisher>Association for Computational Linguistics</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="969" to="976" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,65.64,271.11,223.47,7.47;23,65.64,281.12,223.52,7.47;23,65.64,291.12,101.75,7.47" xml:id="b70">
+	<analytic>
+		<title level="a" type="main">IdeaGraph: A Graph-Based Algorithm of Mining Latent Information for Human Cognition</title>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fanjiang</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaohui</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yukio</forename><surname>Ohsawa</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/smc.2013.167</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE International Conference on Systems, Man, and Cybernetics</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-10">2013</date>
+			<biblScope unit="page" from="952" to="957" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,61.11,223.48,7.47;23,320.75,71.11,123.87,7.47" xml:id="b71">
+	<analytic>
+		<title level="a" type="main">Keyword Extraction Based on PageRank</title>
+		<author>
+			<persName><forename type="first">Jinghua</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianyi</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cong</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-71701-0_95</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Knowledge Discovery and Data Mining</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="857" to="864" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,81.11,223.51,7.47;23,320.75,91.12,223.51,7.47;23,320.75,101.12,71.98,7.47" xml:id="b72">
+	<analytic>
+		<title level="a" type="main">Large-scale Ensemble Model for Customer Churn Prediction in Search Ads</title>
+		<author>
+			<persName><forename type="first">Qiu-Feng</forename><surname>Wang</surname></persName>
+			<idno type="ORCID">0000-0002-0918-4606</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Mirror</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amir</forename><surname>Hussain</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12559-018-9608-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cognitive Computation</title>
+		<title level="j" type="abbrev">Cogn Comput</title>
+		<idno type="ISSN">1866-9956</idno>
+		<idno type="ISSNe">1866-9964</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="262" to="270" />
+			<date type="published" when="2019">2019</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,111.12,223.51,7.47;23,320.75,121.12,223.53,7.47;23,320.75,131.12,134.09,7.47" xml:id="b73">
+	<analytic>
+		<title level="a" type="main">An efficient Wikipedia semantic matching approach to text document classification</title>
+		<author>
+			<persName><forename type="first">Zongda</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guiling</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zongmin</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Enhong</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guandong</forename><surname>Xu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ins.2017.02.009</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Sciences</title>
+		<title level="j" type="abbrev">Information Sciences</title>
+		<idno type="ISSN">0020-0255</idno>
+		<imprint>
+			<biblScope unit="volume">393</biblScope>
+			<biblScope unit="page" from="15" to="28" />
+			<date type="published" when="2017-07">2017</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,141.12,223.50,7.47;23,320.75,151.11,218.26,7.47" xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Multimodal Fusion with Global and Local Features for Text Classification</title>
+		<author>
+			<persName><forename type="first">Cheng</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yue</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zongtian</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-70087-8_14</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Neural Information Processing</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="124" to="134" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,161.11,223.49,7.47;23,320.75,171.11,219.53,7.47" xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Document clustering based on non-negative matrix factorization</title>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yihong</forename><surname>Gong</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/860435.860485</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 26th annual international ACM SIGIR conference on Research and development in informaion retrieval - SIGIR &apos;03</title>
+				<meeting>the 26th annual international ACM SIGIR conference on Research and development in informaion retrieval - SIGIR &apos;03</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="267" to="273" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,181.11,223.51,7.47;23,320.75,191.12,223.54,7.47;23,320.75,201.12,180.80,7.47" xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Contextual advertising in games: Impacts of game context on a player’s memory and evaluation of brands in video games</title>
+		<author>
+			<persName><forename type="first">Seung-Chul</forename><surname>Yoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthew</forename><forename type="middle">S</forename><surname>Eastin</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/13527266.2016.1155074</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Marketing Communications</title>
+		<title level="j" type="abbrev">Journal of Marketing Communications</title>
+		<idno type="ISSN">1352-7266</idno>
+		<idno type="ISSNe">1466-4445</idno>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="614" to="631" />
+			<date type="published" when="2017">2017</date>
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,211.12,223.51,7.47;23,320.75,221.12,223.52,7.47;23,320.75,231.12,87.23,7.47" xml:id="b77">
+	<analytic>
+		<title level="a" type="main">A Study of Smoothing Methods for Language Models Applied to Ad Hoc Information Retrieval</title>
+		<author>
+			<persName><forename type="first">Chengxiang</forename><surname>Zhai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Lafferty</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3130348.3130377</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGIR Forum</title>
+		<title level="j" type="abbrev">SIGIR Forum</title>
+		<idno type="ISSN">0163-5840</idno>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="268" to="276" />
+			<date type="published" when="2017-08-02">2017</date>
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,320.75,241.12,223.48,7.47;23,320.75,251.12,166.71,7.47" xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Keyword Extraction Using Support Vector Machine</title>
+		<author>
+			<persName><forename type="first">Kuo</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jie</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juanzi</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/11775300_8</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Web-Age Information Management</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="85" to="96" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct coords="23,306.14,280.85,238.12,7.67;23,306.14,291.04,231.39,7.47" xml:id="b79">
+	<monogr>
+		<title level="m" type="main">Jurisdictional immunity of foreign States with regard to claims relating to infringements of obligations under peremptory norms</title>
+		<idno type="DOI">10.1163/1875-8096_pplrdc_ej.9789004255579.009_185.12</idno>
+		<imprint>
+			<date>null</date>
+			<publisher>Brill</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
