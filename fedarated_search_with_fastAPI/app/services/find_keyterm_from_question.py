@@ -1,36 +1,29 @@
-import openai
+import pke
+import pandas as pd
 
-# api_key="sk-lUeE-816Y8nMtTAWipqykGqPogHCbEG3DQKD7DvuYkT3BlbkFJTLw6nP_-G0j_gxugKCxe2Uz6yQ1nVysyNK5K6QM4kA",
-class Keyterm:
+class TextRankKeywordsExtraction:
     def __init__(self):
         pass
 
-    openai.api_key = 'sk-lUeE-816Y8nMtTAWipqykGqPogHCbEG3DQKD7DvuYkT3BlbkFJTLw6nP_-G0j_gxugKCxe2Uz6yQ1nVysyNK5K6QM4kA'
-    def extract_key_term(self, question):
-        prompt = f"""
-                Extract the main key topics or subjects from the following question, focusing on essential nouns and named entities. 
-                Avoid generic terms such as 'impact', 'effect', 'role' or dashes ('-') or any unnecessary characters in the output. 
-                
+    def extract_keywords_TextRank(self,question):
+        try:
+            # Initialize the keyphrase extraction model
+            extractor = pke.unsupervised.TextRank()
 
-                Question: "{question}"
+            # Load the content of the question; preprocessing is done using spaCy
+            extractor.load_document(input=question, language='en')
 
-                Key topics:
-                """
+            # Candidate selection (noun and adjective phrases)
+            extractor.candidate_selection()
 
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system",
-                 "content": "You are a helpful assistant that extracts key topics from text, focusing on main subjects and excluding general terms like 'impact' or 'effect'."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=50,
-            temperature=0.3,
-            n=1,
-            stop=["\n"]
-        )
+            # Weight the candidates using the TfIdf algorithm
+            extractor.candidate_weighting()
 
-        # Extract the key phrases from the response
-        key_terms = response['choices'][0]['message']['content'].strip().split(", ")
-        # print("key_terms from openai ", key_terms)
-        return key_terms
+            # Get the top 3 keyphrases
+            keywords = extractor.get_n_best(n=3)
+            print("keywords loop ",type(keywords))
+
+            return [kw[0] for kw in keywords]  # Return only the phrases
+        except Exception as e:
+            print(f"Error in TextRank extraction: {str(e)}")
+            return []
